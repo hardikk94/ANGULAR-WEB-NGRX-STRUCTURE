@@ -5,15 +5,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { StoreModule } from '@ngrx/store';
-
+import { ShareModule } from './../shared/shared.module'
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,      
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,    
+    AppRoutingModule,  
+    ShareModule  
   ],
   providers: [],
   bootstrap: [AppComponent]
