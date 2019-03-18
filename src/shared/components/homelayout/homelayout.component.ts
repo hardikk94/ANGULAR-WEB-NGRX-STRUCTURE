@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-homelayout',
@@ -8,8 +9,11 @@ import { Component, OnInit } from '@angular/core';
 export class HomelayoutComponent implements OnInit {
 
   constructor() { }
-
   ngOnInit() {
   }
 
+  public toggleMenu() {
+    $('#sidebar').toggleClass('active');
+    $(this).toggleClass('active');
+  }
 }

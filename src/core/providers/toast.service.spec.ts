@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { AppConfigService } from './app-config.service';
+import { ToastService } from './toast.service';
 
-describe('AppConfigService', () => {
+describe('ToastService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: AppConfigService = TestBed.get(AppConfigService);
+    const service: ToastService = TestBed.get(ToastService);
     expect(service).toBeTruthy();
   });
 });

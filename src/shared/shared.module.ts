@@ -5,6 +5,7 @@ import { NormallayoutComponent } from './components/normallayout/normallayout.co
 import { SiderbarComponent } from './components/siderbar/siderbar.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { RouterModule } from '@angular/router'
 
 @NgModule({
   declarations: [
@@ -12,18 +13,19 @@ import { FooterComponent } from './components/footer/footer.component';
     NormallayoutComponent,
     SiderbarComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,  
   ],
   imports: [
-    CommonModule
+    CommonModule,  
+    RouterModule
   ],
   exports: [
+    CommonModule,
     HomelayoutComponent,
     HeaderComponent,
     FooterComponent,
     SiderbarComponent,
-    NormallayoutComponent
-
+    NormallayoutComponent,       
   ]
 })
 export class ShareModule { }

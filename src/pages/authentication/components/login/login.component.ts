@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastService } from './../../../../core/providers/toast.service'
 
 @Component({
   selector: 'app-login',
@@ -7,10 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  constructor(public toastService: ToastService) { }
 
   ngOnInit() {
     console.log("init")
+  }
+
+  public login() {
+    this.toastService.showToastMessage('success', "Login", "Succefully Logged in")
   }
 
 }
