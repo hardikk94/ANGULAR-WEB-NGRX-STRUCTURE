@@ -3,9 +3,15 @@ import { ToastrModule } from 'ngx-toastr'
 import { ToastComponent } from './components/toastr.component'
 import { CommonModule } from '@angular/common'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { PageNotFound404Component } from './components/page-not-found404/page-not-found404.component'
 import { CommonService } from './providers/common.service'
 import { ToastService } from './providers/toast.service'
-import { PageNotFound404Component } from './components/page-not-found404/page-not-found404.component'
+import { ApiService } from './providers/api.service';
+import { HTTPintercepterService } from './providers/httpintercepter.service';
+import { HttpClientModule } from '@angular/common/http';
+import { ShareModule } from './../shared/shared.module';
+import { AppRoutingModule } from './../app-routing.module';
+
 @NgModule({
     declarations: [
         ToastComponent,        
@@ -14,17 +20,23 @@ import { PageNotFound404Component } from './components/page-not-found404/page-no
     imports: [
         CommonModule,
         BrowserAnimationsModule,
+        HttpClientModule,
         ToastrModule.forRoot({
             toastComponent: ToastComponent,
         }),
+        ShareModule,
+        AppRoutingModule
     ],
     exports:[
-        ToastComponent,                
+        ToastComponent,
+        AppRoutingModule                
     ],
     entryComponents: [ToastComponent],
     providers: [
         CommonService,
-        ToastService
+        ToastService,
+        ApiService,
+        HTTPintercepterService
     ],
 })
 export class CoreModule {

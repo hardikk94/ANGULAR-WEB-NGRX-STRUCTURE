@@ -6,6 +6,7 @@ import { SiderbarComponent } from './components/siderbar/siderbar.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { RouterModule } from '@angular/router'
+import { ReactiveFormsModule, FormsModule } from '@angular/forms'
 
 @NgModule({
   declarations: [
@@ -13,11 +14,13 @@ import { RouterModule } from '@angular/router'
     NormallayoutComponent,
     SiderbarComponent,
     HeaderComponent,
-    FooterComponent,  
+    FooterComponent,
   ],
   imports: [
-    CommonModule,  
-    RouterModule
+    CommonModule,
+    RouterModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   exports: [
     CommonModule,
@@ -25,7 +28,10 @@ import { RouterModule } from '@angular/router'
     HeaderComponent,
     FooterComponent,
     SiderbarComponent,
-    NormallayoutComponent,       
+    NormallayoutComponent,
+    ReactiveFormsModule,
+    FormsModule
+
   ]
 })
 export class ShareModule { }

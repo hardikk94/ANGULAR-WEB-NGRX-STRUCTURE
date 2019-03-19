@@ -2,8 +2,16 @@
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
+/*************for generating build for dev , live and qa *********************/
+//ng build --configuration=qa
+//ng build --configuration=dev
+//ng build --configuration=prod
+//python -m SimpleHTTPServer 7000
+
 export const environment = {
-  production: false
+  production: false,
+  api_url:'https://api.dev.com/1.0/',
+    image_url:'https://api.dev.com/1.0/image/avatar/'
 };
 
 /*
