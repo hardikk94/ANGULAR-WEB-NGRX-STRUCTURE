@@ -1,19 +1,60 @@
-<form>
-  <div class="form-group">
-    <label for="exampleInputEmail1">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-      placeholder="Enter email">
-    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+<div class="login-page-wrapper">
+  <div class="row">
+    <div class="col-5">
+      <div class="container">
+        <app-image-viewer imageURL="assets/image1.png" alternateText="Cambray Catering Recruitment wall image">
+        </app-image-viewer>
+      </div>
+    </div>
+    <div class="col-7">
+      <div class="container">
+        <div class="login-form-wrapper">
+          <div class="logo-image card-img-top">
+            <app-image-viewer imageURL="assets/image1.png" alternateText="Cambray Catering Recruitment wall image">
+            </app-image-viewer>
+          </div>
+          <span class="info-title">Welcome back!Please login to your account.</span>
+          <div class="login-form">
+            <form [formGroup]="loginForm" (ngSubmit)="login()">
+              <div class="form-group">
+                <label for="email">Email address<span>*</span></label>
+                <input type="email" class="form-control" id="email" placeholder="Enter email here..."
+                  formControlName="email" name="email" data-toggle="tooltip" data-placement="top"
+                  title="Enter email here">
+                <span id="emailHelp"
+                  *ngIf="loginForm.get('email').dirty && !loginForm.get('email').valid && loginForm.get('email')?.errors?.email"
+                  class="form-field-error">Email is not valid.</span>
+              </div>
+
+              <div class="form-group">
+                <label for="password">Password<span>*</span></label>
+                <input type="password" class="form-control" id="password" placeholder="Enter password here..."
+                  formControlName="password" name="password" autocomplete="true" data-toggle="tooltip"
+                  data-placement="top" title="Enter password here...">
+                <span id="emailHelp"
+                  *ngIf="loginForm.get('password').dirty && !loginForm.get('password').valid && loginForm.get('password')?.errors?.minlength"
+                  class="form-field-error">Password should be minimum 8 character.</span>
+              </div>
+
+              <div class="btn-row">
+                <div class="form-checkbox">
+                  <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                  <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                </div>
+                <button type="button" class="btn btn-primary" [routerLink]="['/forgot']">Forgot Password ?</button>
+              </div>
+
+              <div class="btn-row">
+                <button type="submit" class="btn btn-primary" [disabled]="!loginForm.valid">Sign in</button>
+                <button type="button" class="btn btn-primary" [routerLink]="['/register']">Register</button>
+              </div>
+
+
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="form-group">
-    <label for="exampleInputPassword1">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-  </div>
-  <div class="form-group form-check">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-    <label class="form-check-label" for="exampleCheck1">Check me out</label>
-  </div>
-  <button type="button" class="btn btn-primary" (click)=login()>Submit</button>
-  <button type="button" class="btn btn-primary" [routerLink]="['/register']">Register</button>
-  <button type="button" class="btn btn-primary" [routerLink]="['/forgot']">Forgot Password ?</button>
-</form>
+</div>

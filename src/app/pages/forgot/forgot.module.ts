@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
-import { ShareModule } from './../../shared/shared.module'
-import { ForgotRoutingModule } from './forgot-routing.module'
-import { ForgotComponent } from './forgot.component'
+import { ShareModule } from './../../shared/shared.module';
+import { ForgotRoutingModule } from './forgot-routing.module';
+import { ForgotComponent } from './forgot.component';
 @NgModule({
   declarations: [
     ForgotComponent

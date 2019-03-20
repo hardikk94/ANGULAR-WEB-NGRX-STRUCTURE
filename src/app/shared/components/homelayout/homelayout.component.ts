@@ -16,4 +16,10 @@ export class HomelayoutComponent implements OnInit {
     $('#sidebar').toggleClass('active');
     $(this).toggleClass('active');
   }
+
+  public toggleButton()
+  {
+    $('#sidebar').toggleClass('active');
+    $(this).toggleClass('active');
+  }
 }

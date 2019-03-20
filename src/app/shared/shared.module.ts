@@ -6,7 +6,8 @@ import { SiderbarComponent } from './components/siderbar/siderbar.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { RouterModule } from '@angular/router'
-import { ReactiveFormsModule, FormsModule } from '@angular/forms'
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { ImageViewerComponent } from './components/image-viewer/image-viewer.component'
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms'
     SiderbarComponent,
     HeaderComponent,
     FooterComponent,
+    ImageViewerComponent,
   ],
   imports: [
     CommonModule,
@@ -25,6 +27,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms'
   exports: [
     CommonModule,
     HomelayoutComponent,
+    ImageViewerComponent,
     HeaderComponent,
     FooterComponent,
     SiderbarComponent,

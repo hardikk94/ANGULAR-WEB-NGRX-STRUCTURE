@@ -11,6 +11,9 @@ import { HTTPintercepterService } from './providers/httpintercepter.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ShareModule } from './../shared/shared.module';
 import { AppRoutingModule } from './../app-routing.module';
+import { SessionStorageService } from './providers/session-storage.service'
+import { AuthGuardService } from './providers/auth.guard.service'
+
 
 @NgModule({
     declarations: [
@@ -36,7 +39,9 @@ import { AppRoutingModule } from './../app-routing.module';
         CommonService,
         ToastService,
         ApiService,
-        HTTPintercepterService
+        HTTPintercepterService,
+        SessionStorageService,
+        AuthGuardService
     ],
 })
 export class CoreModule {
