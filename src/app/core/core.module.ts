@@ -13,26 +13,40 @@ import { ShareModule } from './../shared/shared.module';
 import { AppRoutingModule } from './../app-routing.module';
 import { SessionStorageService } from './providers/session-storage.service'
 import { AuthGuardService } from './providers/auth.guard.service'
-
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from 'src/environments/environment';
+import { StoreModule } from "@ngrx/store";
+import { EffectsModule } from "@ngrx/effects";
+import { middlewareReducer } from './../store/reducers/middleware.reducer'
+import { reducers } from './../store/reducers/app.reducer'
+import { AuthEffects } from './../store/effects/auth.effects'
+import { AuthService } from './../store/providers/auth.service'
+import { AuthStoreService } from './../store/stores/auth.store'
 
 @NgModule({
     declarations: [
-        ToastComponent,        
+        ToastComponent,
         PageNotFound404Component
     ],
     imports: [
         CommonModule,
         BrowserAnimationsModule,
         HttpClientModule,
+        StoreDevtoolsModule.instrument({
+            maxAge: 25,
+            logOnly: environment.production
+        }),
         ToastrModule.forRoot({
             toastComponent: ToastComponent,
         }),
         ShareModule,
-        AppRoutingModule
+        AppRoutingModule,
+        StoreModule.forRoot(reducers,{metaReducers:middlewareReducer}),
+        EffectsModule.forRoot([AuthEffects])
     ],
-    exports:[
+    exports: [
         ToastComponent,
-        AppRoutingModule                
+        AppRoutingModule
     ],
     entryComponents: [ToastComponent],
     providers: [
@@ -41,7 +55,9 @@ import { AuthGuardService } from './providers/auth.guard.service'
         ApiService,
         HTTPintercepterService,
         SessionStorageService,
-        AuthGuardService
+        AuthGuardService,
+        AuthStoreService,
+        AuthService
     ],
 })
 export class CoreModule {

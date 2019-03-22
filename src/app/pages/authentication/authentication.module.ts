@@ -7,6 +7,7 @@ import { ShareModule} from './../../shared/shared.module'
   imports: [
     AuthRoutingModule,
     ShareModule
-  ]
+  ],
+  providers:[]
 })
 export class AuthenticationModule { }
