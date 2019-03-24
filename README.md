@@ -1,26 +1,26 @@
 
 # ANGULAR-WEB-NGRX-STRUCTURE
-This repository is used for creating web application.It provides a best way to structure component ,Pipe,Service and Page.
+This repository is used for creating web application.It provides a best way to structure Component, Pipe, Service and Page.This repository provides a well maintened structure.It is widely used for enterprize level Projects.
 
-This repository provides a well maintened structure for component,directive , pipes, setvice and imports.It provodes many of features like
 
-NGRX Structure
-SASS Strcuture
-RXJS Operators
-Lazy Load Components
-Shared and Core Modules
-Image component
-Local and session storage service
-Loading component
-Toast Service
-Modal Component and it's service
-Build Configuration for dev ,live and test
-Unit testing
-Service worker
+
+NGRX Structure,
+SASS Strcuture,
+RXJS Operators,
+Lazy Load Components,
+Shared and Core Modules,
+Image component,
+Local and session storage service,
+Loading component,
+Toast Service,
+Modal Component and it's service,
+Build Configuration for dev ,live and test,
+Unit testing,
+Service worker,
 Cache Mechanisam
 
 
-We are keep updating many of features to make it more simplier.It is widely used for the Enterprize level projects,
+We are keep updating many of features to make it more simplier.
 
 ## Development server
 
