@@ -1,0 +1,98 @@
+{
+  "extends": "tslint:recommended",
+  "rulesDirectory": [
+    "codelyzer"
+  ],
+  "rules": {
+    "array-type": false,
+    "arrow-parens": false,
+    "deprecation": {
+      "severity": "warn"
+    },
+    "import-blacklist": [
+      true,
+      "rxjs/Rx"
+    ],    
+    "max-classes-per-file": false,
+    "max-line-length": [
+      true,
+      140
+    ],
+    "member-access": false,
+    "member-ordering": [
+      true,
+      {
+        "order": [
+          "static-field",
+          "instance-field",
+          "static-method",
+          "instance-method"
+        ]
+      }
+    ],
+    "no-consecutive-blank-lines": false,
+    "no-console": [
+      true,
+      "debug",
+      "info",
+      "time",
+      "timeEnd",
+      "trace"
+    ],    
+    "no-inferrable-types": [
+      true,
+      "ignore-params"
+    ],
+    "no-non-null-assertion": true,
+    "no-redundant-jsdoc": true,
+    "no-switch-case-fall-through": true,
+    "no-use-before-declare": true,
+    "no-var-requires": false,
+    "object-literal-key-quotes": [
+      true,
+      "as-needed"
+    ],
+    "object-literal-sort-keys": false,
+    "ordered-imports": false,
+    "quotemark": [
+      true,
+      "single"
+    ],
+    "trailing-comma": false,
+    "no-output-on-prefix": true,
+    "use-input-property-decorator": true,
+    "use-output-property-decorator": true,
+    "use-host-property-decorator": true,
+    "no-input-rename": true,
+    "no-output-rename": true,
+    "use-life-cycle-interface": true,
+    "use-pipe-transform-interface": true,
+    "component-class-suffix": true,
+    "directive-class-suffix": true,    
+
+    "adjacent-overload-signatures":true,
+    "no-any":true,
+    "no-empty-interface": true,
+    "no-parameter-reassignment": true,
+    "only-arrow-functions": true,
+    "prefer-for-of": true,
+    "no-duplicate-variable": true,
+    "no-empty": [true, "allow-empty-catch"],
+    "typedef": [true, "call-signature","arrow-call-signature","parameter","property-declaration","variable-declaration","member-variable-declaration"],
+    "no-eval": true,
+    "no-floating-promises": true,
+
+    "cyclomatic-complexity": true,
+    "max-file-line-count": [true, 300],
+    "no-default-export": true,
+    "no-require-imports": true,
+    "prefer-const": true,
+    "prefer-readonly": true,
+    "no-var-keyword": true,
+    "switch-default": true,
+    "triple-equals": true,  
+    "interface-name": true,
+    "variable-name": [true, "ban-keywords", "check-format", "allow-leading-underscore"],
+    "completed-docs":true
+  }
+}

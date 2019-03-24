@@ -1,0 +1,38 @@
+<div class="forgot-page-wrapper">
+  <div class="row">
+    <div class="col-5">
+      <div class="container">
+        <app-image-viewer imageURL="assets/image1.png" alternateText="Cambray Catering Recruitment wall image">
+        </app-image-viewer>
+      </div>
+    </div>
+    <div class="col-7">
+      <div class="container">
+        <div class="forgot-form-wrapper">
+          <div class="logo-image">
+            <app-image-viewer imageURL="assets/image1.png" alternateText="Cambray Catering Recruitment wall image">
+            </app-image-viewer>
+          </div>
+          <span class="info-title">Enter your email and we send you password reset link.</span>
+          <div class="forgot-form">
+            <form [formGroup]="forgotForm" (ngSubmit)="forgotEmail()">
+              <div class="form-group">
+                <label for="email">Email address</label>
+                <input type="email" class="form-control" id="email" placeholder="Enter email here..."
+                  formControlName="email">
+                <span class="form-field-error"
+                  *ngIf="!forgotForm.get('email').valid && forgotForm.get('email').dirty && forgotForm.get('email').errors?.email">
+                  Email is invalid.</span>
+              </div>
+              <div class="btn-row">
+                <button type="submit" class="btn btn-primary" [disabled]="!forgotForm.valid">Submit</button>
+                <button type="button" class="btn btn-primary" [routerLink]="['/auth']">Back to Login</button>
+              </div>
+
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

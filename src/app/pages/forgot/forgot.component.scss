@@ -1,0 +1,16 @@
+.forgot-page-wrapper{
+    .forgot-form-wrapper{
+        width: 50%;        
+        margin: auto;
+        display:flex;
+        height: 100%;
+        flex-direction: column;
+        justify-content: space-between;
+        .logo-image{
+            width: 300px;
+            height: 120px;
+            background: #f9f9f9;
+            overflow: hidden;
+        }
+    }
+}

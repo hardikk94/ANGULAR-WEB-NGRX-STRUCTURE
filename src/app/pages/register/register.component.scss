@@ -1,0 +1,38 @@
+.register-page-wrapper{
+    .register-form-wrapper{        
+        width: 50%;        
+        margin: auto;
+        display:flex;
+        height: 100%;
+        flex-direction: column;
+        justify-content: space-between;
+            .logo-image{
+                width: 300px;
+                height: 120px;
+                background: #f9f9f9;
+                overflow: hidden;
+            }
+            .register-form
+            {
+                display: flex;
+                flex-direction: column;
+                .step-wizard{
+
+                }
+                .persion-info{
+                    .full-name{
+                        display: flex
+                    } 
+                }
+                .business-info{
+                    .phone-info{
+                        display: flex;
+                    }
+                    .zip-info{
+                        display: flex;
+                    }
+                }
+                  
+            }            
+    }
+}
