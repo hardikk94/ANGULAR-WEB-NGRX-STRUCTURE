@@ -1,6 +1,26 @@
-# AngularNgrxSassDemo
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.1.
+# ANGULAR-WEB-NGRX-STRUCTURE
+This repository is used for creating web application.It provides a best way to structure Component, Pipe, Service and Page.This repository provides a well maintened structure.It is widely used for enterprize level Projects.
+
+
+
+NGRX Structure,
+SASS Strcuture,
+RXJS Operators,
+Lazy Load Components,
+Shared and Core Modules,
+Image component,
+Local and session storage service,
+Loading component,
+Toast Service,
+Modal Component and it's service,
+Build Configuration for dev ,live and test,
+Unit testing,
+Service worker,
+Cache Mechanisam
+
+
+We are keep updating many of features to make it more simplier.
 
 ## Development server
 
@@ -25,3 +45,4 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
