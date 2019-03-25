@@ -1,20 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router'
 import { FormGroup,FormBuilder, Validators} from '@angular/forms'
+import { Subscription } from 'rxjs/Subscription';
+import { RegisterStoreService } from './../store/register.store'
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss']
 })
-export class RegisterComponent implements OnInit {
+export class RegisterComponent implements OnInit , OnDestroy{
   public registerType = 'candidate';
   public currentStep="persion-info"
   public occupationList:any[];
   public registerForm:FormGroup
+  public registerSubscription:Subscription
   constructor(
     public router:Router,
-    public formBuilder:FormBuilder
+    public formBuilder:FormBuilder,
+    public registerStoreService:RegisterStoreService
   ) { }
 
   ngOnInit() {
@@ -23,6 +27,10 @@ export class RegisterComponent implements OnInit {
       last_name:['']
     })
 
+
+    this.registerSubscription = this.registerStoreService.storeSelect().subscribe((response)=>{
+      console.log("registerInfo",response)
+    })
 
     this.occupationList = [
       {
@@ -56,5 +64,13 @@ export class RegisterComponent implements OnInit {
   public goToNextStep(type)
   {
     this.currentStep = type
+  }
+
+  public ngOnDestroy()
+  {
+    if(this.registerSubscription)
+    {
+      this.registerSubscription.unsubscribe()
+    }
   }
 }

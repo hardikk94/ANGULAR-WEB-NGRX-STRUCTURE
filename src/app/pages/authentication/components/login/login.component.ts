@@ -45,10 +45,9 @@ export class LoginComponent implements OnInit,OnDestroy {
   }
 
 
-  public login() {
+  public login() {        
+    this.authStoreSevice.dispatchLoginAction(this.loginForm.value)    
     // this.sessionService.setItem('isLoggedIn', true)    
-    this.authStoreSevice.dispatchLoginAction(this.loginForm.value)
-    // this.toastService.showToastMessage('success', "Login", "Succefully Logged in")
     // this.router.navigate(['home']);
   }
 }

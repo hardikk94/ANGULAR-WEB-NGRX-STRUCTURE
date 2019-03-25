@@ -14,12 +14,7 @@ export function authReducer(state = authInitalState, action: AuthAction): AuthSt
 
         case authActionTypes.LOGOUT_COMPLETED:
             return Object.assign({}, state, action.payload)
-
-        case authActionTypes.FORGOT_COMPLETED:
-            return Object.assign({}, state, action.payload)
-
-        case authActionTypes.SIGNUP_COMPLETED:
-            return Object.assign({}, state, action.payload)
+        
         default:
             return authInitalState
     }

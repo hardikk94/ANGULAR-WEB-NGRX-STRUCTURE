@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router'
 import { NormallayoutComponent } from 'src/app/shared/components/normallayout/normallayout.component';
-import { ForgotComponent } from './forgot.component';
+import { ForgotComponent } from './components/forgot.component';
 
 const routes: Routes = [{
   path: '',
@@ -11,10 +11,10 @@ const routes: Routes = [{
     component: ForgotComponent
   }]
 }]
-@NgModule({  
+@NgModule({
   imports: [
     RouterModule.forChild(routes)
   ],
-  exports:[RouterModule]
+  exports: [RouterModule]
 })
 export class ForgotRoutingModule { }
