@@ -1,223 +1,304 @@
 <div class="register-page-wrapper">
-  <div class="row">
-    <div class="col-5">
-      <div class="container">
-        <app-image-viewer imageURL="assets/image1.png" alternateText="Cambray Catering Recruitment wall image">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-5 col-md-6 leftside">
+        <app-image-viewer imageURL="assets/img-leftside-signup.png"
+          alternateText="Cambray Catering Recruitment wall image">
         </app-image-viewer>
       </div>
-    </div>
-    <div class="col-7">
-      <div class="container">
+      <div class="col-lg-7 col-md-6 rightside">
         <div class="register-type">
           <ul class="nav nav-pills nav-fill">
             <li class="nav-item">
-              <a class="nav-link" [ngClass]="{active :registerType =='candidate'}"
+              <a class="nav-link" [ngClass]="{ active: registerType == 'candidate' }"
                 (click)="showRegisterForm('candidate')">I AM A CANDIDDATE</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" [ngClass]="{active :registerType =='client'}" (click)="showRegisterForm('client')">I
-                AM A CLIENT</a>
+              <a class="nav-link" [ngClass]="{ active: registerType == 'client' }"
+                (click)="showRegisterForm('client')">I AM A CLIENT</a>
             </li>
           </ul>
-        </div>
 
-        <div class="register-form-wrapper">
-          <div class="logo-image card-img-top">
-            <app-image-viewer imageURL="assets/image1.png" alternateText="Cambray Catering Recruitment wall image">
-            </app-image-viewer>
-          </div>
-          <div class="register-form">
-            <form [formGroup]="registerForm">
-              <ng-template [ngIf]="registerType == 'candidate'" [ngIfElse]="clientRegister">
-                <span class="info-title">Register a Candidate Account.Please fill in the details below.</span>
-                <div class="form-group">
-                  <div class="full-name">
-                    <div>
-                      <label for="first_name">First Name</label>
-                      <input type="text" class="form-control" id="first_name" placeholder="First Name" name="first_name"
-                        formControlName="first_name">
-                    </div>
-                    <div>
-                      <label for="last_name">Last Name</label>
-                      <input type="text" class="form-control" id="last_name" placeholder="Last Name" name="last_name"
-                        formControlName="last_name">
-                    </div>
+          <div class="register-form-wrapper">
+            <div class="logo-image">
+              <app-image-viewer imageURL="assets/logo-login.png"
+                alternateText="Cambray Catering Recruitment wall image">
+              </app-image-viewer>
+            </div>
+            <div class="register-form">
+              <form [formGroup]="registerForm" (ngSubmit)="register()">
+                <!-- ****************candiddate registartion start********************* -->
+                <ng-template #clientRegister>
+                  <div class="info-title">
+                    Register a Client Account.Please fill in the details below
+                    in 3 easysteps.
                   </div>
-                </div>
+                  <div class="step-wizard">
+                    <ul class="nav nav-tabs">
+                      <li class="nav-item">
+                        <a class="nav-link" [ngClass]="{ active: currentStep == 'persion-info' }"
+                          (click)="goToNextStep('persion-info')">Personal Info</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" [ngClass]="{ active: currentStep == 'business-info' }"
+                          (click)="goToNextStep('business-info')">Business Info</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" [ngClass]="{ active: currentStep == 'account-info' }"
+                          (click)="goToNextStep('account-info')">Account Info</a>
+                      </li>
+                    </ul>
+                  </div>
 
-                <div class="form-group">
-                  <label for="occupation">Occupation</label>
-                  <select id="occupation" class="form-control" placeholder="Ocuupation">
-                    <option *ngFor="let occuoation of occupationList" [value]="occuoation.id">
-                      {{occuoation.name}}
-                    </option>
-                  </select>
-                </div>
-
-                <div class="form-group">
-                  <label for="email">Email</label>
-                  <input type="text" class="form-control" id="email" placeholder="Email">
-                </div>
-                <div class="form-group">
-                  <label for="password">Password</label>
-                  <input type="text" class="form-control" id="email" placeholder="Email">
-                  <label for="password">Re-typ Password</label>
-                  <input type="text" class="form-control" id="email" placeholder="Email">
-                </div>
-
-                <div class="form-group">
-                  <input type="checkbox" id="termscondition" class="form-check-input">
-                  <label class="form-check-label" for="termscondition">I agree with terms and conditions</label>
-                </div>
-                <div class="form-group">
-                  <button type="button" class="btn btn-primary" (click)="alreadyHaveAccount()">I ALREADY HAVE AN
-                    ACCOUNT</button>
-                  <button type="button" class="btn btn-secondary">SIGNUP NOW </button>
-                </div>
-              </ng-template>
-
-
-              <ng-template #clientRegister>
-                <span class="info-title">Register a Client Account.Please fill in the details below in 3
-                  easysteps.</span>
-                <div class="step-wizard">
-                  <ul class="nav nav-tabs">
-                    <li class="nav-item">
-                      <a class="nav-link" [ngClass]="{active:currentStep=='persion-info'}"
-                        (click)="goToNextStep('persion-info')">Personal Info</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" [ngClass]="{active:currentStep=='business-info'}"
-                        (click)="goToNextStep('business-info')">Business Info</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" [ngClass]="{active:currentStep=='account-info'}"
-                        (click)="goToNextStep('account-info')">Account Info</a>
-                    </li>
-                  </ul>
-                </div>
-
-                <ng-container [ngSwitch]="currentStep">
-                  <div class="persion-info" *ngSwitchCase="'persion-info'">
-                    <div>
-                      <div class="form-group">
-                        <div class="full-name">
-                          <div>
-                            <label for="first_name">First Name</label>
-                            <input type="text" class="form-control" id="first_name" placeholder="First Name">
+                  <div formGroupName="clientForm">
+                    <ng-container [ngSwitch]="currentStep">
+                      <!-- ****************** Personal info start************************ -->
+                      <div class="persion-info" *ngSwitchCase="'persion-info'">
+                        <ng-container formGroupName="persionDetailForm">
+                          <div class="form-group">
+                            <div class="full-name">
+                              <div>
+                                <input type="text" class="form-control" id="first_name" placeholder="First Name"
+                                  formControlName="first_name" name="first_name" />
+                              </div>
+                              <div>
+                                <input type="text" class="form-control" id="last_name" placeholder="Last Name"
+                                  formControlName="last_name" name="last_name" />
+                              </div>
+                            </div>
                           </div>
-                          <div>
-                            <label for="last_name">Last Name</label>
-                            <input type="text" class="form-control" id="last_name" placeholder="Last Name">
+
+                          <div class="form-group">
+                            <input type="text" class="form-control" id="job_title" placeholder="Job Title"
+                              formControlName="job_title" name="job_title" />
                           </div>
+                          <div class="form-group">
+                            <select id="occupation" class="form-control" placeholder="Ocuupation"
+                              formControlName="ocuupation" name="cuupation">
+                              <option *ngFor="let occuoation of occupationList" [value]="occuoation.id">
+                                {{ occuoation.name }}
+                              </option>
+                            </select>
+                          </div>
+
+                          <div class="form-group">
+                            <input type="text" class="form-control" id="business_type" placeholder="Business Name"
+                              formControlName="ocuupation_name" name="ocuupation_name" />
+                          </div>
+
+                          <div class="form-group">
+                            <input type="email" class="form-control" id="email" placeholder="Email"
+                              formControlName="email" name="email" />
+                          </div>
+
+                          <div class="action-btns-row">
+                            <button type="button" class="btn btn-default" (click)="alreadyHaveAccount()">
+                              I ALL READY HAVE AN ACCOUNT
+                            </button>
+                            <button type="button" class="btn btn-primary" (click)="goToNextStep('business-info')"
+                              [disabled]="
+                                !registerForm?.controls?.clientForm?.controls
+                                  .persionDetailForm?.valid
+                              ">
+                              NEXT
+                            </button>
+                          </div>
+                        </ng-container>
+                      </div>
+                      <!-- ****************** Personal info end************************ -->
+
+                      <!-- ****************** Bussiness info start ************************ -->
+                      <div class="business-info" *ngSwitchCase="'business-info'">
+                        <ng-container formGroupName="businessDetailForm">
+                          <div class="form-group">
+                            <div class="phone-info">
+                              <div>
+                                <input type="tel" class="form-control" id="phone_no" placeholder="Phone Nr"
+                                  formControlName="phone_no" name="phone_no" />
+                              </div>
+                              <div>
+                                <input type="tel" class="form-control" id="mobile_no" placeholder="Mobile Nr"
+                                  formControlName="mobile_no" name="mobile_no" />
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="form-group">
+                            <input type="text" id="addressline1" class="form-control" placeholder="Addressline1"
+                              formControlName="addressline1" name="addressline1" />
+
+                            <input type="text" id="addressline2" class="form-control" placeholder="Addressline2"
+                              formControlName="addressline2" name="addressline2" />
+
+                            <input type="text" id="addressline3" class="form-control" placeholder="Addressline3"
+                              formControlName="addressline3" name="addressline3" />
+                          </div>
+
+                          <div class="form-group">
+                            <div class="zip-info">
+                              <div>
+                                <input type="text" id="town" placeholder="Town" class="form-control"
+                                  formControlName="town" name="town" />
+                              </div>
+                              <div>
+                                <input type="text" id="zip_code" placeholder="Zip Code" class="form-control"
+                                  formControlName="zip_code" name="zip_code" />
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="form-group">
+                            <button type="button" class="btn btn-primary" (click)="goToNextStep('persion-info')">
+                              CANCEL
+                            </button>
+                            <button type="button" class="btn btn-secondary" (click)="goToNextStep('account-info')"
+                              [disabled]="
+                                !registerForm?.controls?.clientForm?.controls
+                                  .businessDetailForm?.valid
+                              ">
+                              NEXT
+                            </button>
+                          </div>
+                        </ng-container>
+                      </div>
+                      <!-- ****************** Bussiness info end ************************ -->
+
+                      <!-- ****************** Account info start ************************ -->
+                      <div class="account-info" *ngSwitchCase="'account-info'">
+                        <ng-container formGroupName="accountDetailForm">
+                          <div class="form-group">
+                            <input type="text" class="form-control" id="email" placeholder="Email"
+                              formControlName="email" name="email" />
+                          </div>
+                          <div class="form-group">
+                            <input type="text" class="form-control" id="password" placeholder="password"
+                              formControlName="password" name="password" />
+
+                            <input type="text" class="form-control" id="confirm_password" placeholder="Confirm Password"
+                              formControlName="confirm_password" name="confirm_password" />
+                          </div>
+
+                          <div class="Checkbox__group">
+                            <input id="check" type="checkbox" />
+                            <label for="check">I agree with terms and conditions</label>
+                          </div>
+                          <div class="form-group">
+                            <button type="button" class="btn btn-primary" (click)="goToNextStep('business-info')"
+                              [disabled]="
+                                !registerForm?.controls?.clientForm?.controls
+                                  .accountDetailForm?.valid
+                              ">
+                              CANCEL
+                            </button>
+                            <button type="button" class="btn btn-secondary">
+                              CREATE ACCOUNT
+                            </button>
+                          </div>
+                        </ng-container>
+                      </div>
+                      <!-- ****************** Account info end ************************ -->
+                    </ng-container>
+                  </div>
+                </ng-template>
+                <!-- ****************client registartion end********************* -->
+
+                <!--**************** candiddate registration start **************** -->
+                <ng-template [ngIf]="registerType == 'candidate'" [ngIfElse]="clientRegister">
+                  <ng-container formGroupName="candidateForm">
+                    <span class="info-title">Register a Candidate Account.Please fill in the details below.</span>
+                    <div class="form-group">
+                      <div class="full-name">
+                        <div>
+                          <label for="first_name">First Name</label>
+                          <input type="text" class="form-control" id="first_name" placeholder="First Name"
+                            name="first_name" formControlName="first_name">
+                          <span *ngIf="(registerForm.get('candidateForm.first_name').dirty || registerForm.get('candidateForm.first_name').touched) 
+                              && !registerForm.get('candidateForm.first_name').valid" class="form-field-error">
+                            First name is required.
+                          </span>
+                        </div>
+                        <div>
+                          <label for="last_name">Last Name</label>
+                          <input type="text" class="form-control" id="last_name" placeholder="Last Name"
+                            name="last_name" formControlName="last_name">
+                          <span *ngIf="(registerForm.get('candidateForm.last_name').dirty || registerForm.get('candidateForm.last_name').touched) 
+                              && !registerForm.get('candidateForm.last_name').valid" class="form-field-error">
+                            First name is required.
+                          </span>
                         </div>
                       </div>
-
-                      <div class="form-group">
-                        <label for="job_title">Job Title</label>
-                        <input type="text" class="form-control" id="job_title" placeholder="Job Title">
-                      </div>
-                      <div class="form-group">
-                        <label for="occupation">Bussiness Type</label>
-                        <select id="occupation" class="form-control" placeholder="Ocuupation">
-                          <option *ngFor="let occuoation of occupationList" [value]="occuoation.id">
-                            {{occuoation.name}}
-                          </option>
-                        </select>
-                      </div>
-
-                      <div class="form-group">
-                        <label for="business_type">Business Name</label>
-                        <input type="text" class="form-control" id="business_type" placeholder="Business Name">
-                      </div>
-
-                      <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" class="form-control" id="email" placeholder="Email">
-                      </div>
-
-                      <div class="form-group">
-                        <button type="button" class="btn btn-primary" (click)="alreadyHaveAccount()">I ALREADY HAVE AN
-                          ACCOUNT</button>
-                        <button type="button" class="btn btn-secondary"
-                          (click)="goToNextStep('business-info')">NEXT</button>
-                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="occupation">Occupation</label>
+                      <select id="occupation" class="form-control" placeholder="Ocuupation" formControlName="occuoation"
+                        name="occuoation">
+                        <option *ngFor="let occuoation of occupationList" [value]="occuoation.id">
+                          {{occuoation.name}}
+                        </option>
+                      </select>
+                      <span class="form-field-error"
+                        *ngIf="(registerForm.get('candidateForm.occuoation').dirty || registerForm.get('candidateForm.occuoation').touched) && !registerForm.get('candidateForm.occuoation').valid && !registerForm.get('candidateForm.occuoation').notselected">Please
+                        select occupation.</span>
                     </div>
 
-                  </div>
-
-                  <div class="business-info" *ngSwitchCase="'business-info'">
-                    <div>
-                      <div class="form-group">
-                        <div class="phone-info">
-                          <div>
-                            <label for="phone_no">Phone Nr</label>
-                            <input type="tel" class="form-control" id="phone_no" placeholder="Phone Nr">
-                          </div>
-                          <div>
-                            <label for="mobile_no">Mobile Nr</label>
-                            <input type="tel" class="form-control" id="mobile_no" placeholder="Mobile Nr">
-                          </div>
-                        </div>
-                      </div>
-
-                      <div class="form-group">
-                        <label for="addressline1">Addressline1</label>
-                        <input type="text" id="addressline1" class="form-control" placeholder="Addressline1">
-                        <label for="addressline2">Addressline2</label>
-                        <input type="text" id="addressline2" class="form-control" placeholder="Addressline2">
-                        <label for="addressline3">Addressline3</label>
-                        <input type="text" id="addressline3" class="form-control" placeholder="Addressline3">
-                      </div>
-
-                      <div class="form-group">
-                        <div class="zip-info">
-                          <div>
-                            <label for="town">Town</label>
-                            <input type="text" id="town" placeholder="Town" class="form-control">
-                          </div>
-                          <div>
-                            <label for="zip_code">Zip Code</label>
-                            <input type="text" id="zip_code" placeholder="Town" class="form-control">
-                          </div>
-                        </div>
-                      </div>
-
-                      <div class="form-group">
-                        <button type="button" class="btn btn-primary"
-                          (click)="goToNextStep('persion-info')">CANCEL</button>
-                        <button type="button" class="btn btn-secondary"
-                          (click)="goToNextStep('account-info')">NEXT</button>
-                      </div>
+                    <div class="form-group">
+                      <label for="email">Email</label>
+                      <input type="email" class="form-control" id="email" placeholder="Email" formControlName="email"
+                        name="email">
+                      <span
+                        *ngIf="(registerForm.get('candidateForm.email').dirty || registerForm.get('candidateForm.email').touched) && !registerForm.get('candidateForm.email').valid"
+                        class="form-field-error">
+                        <span *ngIf="registerForm.get('candidateForm.email')?.errors?.email ; else emailRequire">Email
+                          is
+                          invalid.</span>
+                        <ng-template #emailRequire>Email is required.</ng-template>
+                      </span>
                     </div>
-                  </div>
-
-                  <div class="account-info" *ngSwitchCase="'account-info'">
-                    <div>
-                      <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="text" class="form-control" id="email" placeholder="Email">
-                      </div>
-                      <div class="form-group">
-                        <label for="password">Password</label>
-                        <input type="text" class="form-control" id="email" placeholder="Email">
-                        <label for="password">Confirm Password</label>
-                        <input type="text" class="form-control" id="email" placeholder="Confirm Password">
-                      </div>
-                      <div class="form-group">
-                        <input type="checkbox" id="termscondition" class="form-check-input">
-                        <label class="form-check-label" for="termscondition">I agree with terms and conditions</label>
-                      </div>
-                      <div class="form-group">
-                        <button type="button" class="btn btn-primary"
-                          (click)="goToNextStep('business-info')">CANCEL</button>
-                        <button type="button" class="btn btn-secondary">CREATE ACCOUNT</button>
-                      </div>
+                    <div class="form-group">
+                      <label for="password">Password</label>
+                      <input type="password" class="form-control" id="password" placeholder="password"
+                        formControlName="password" name="password">
+                      <span class="form-field-error"
+                        *ngIf="(registerForm.get('candidateForm.password').dirty || registerForm.get('candidateForm.password').touched) && !registerForm.get('candidateForm.password').valid">
+                        <span
+                          *ngIf="registerForm.get('candidateForm.password')?.errors?.minlength ; else passwordRequire">Password
+                          should be minimum 8 characters long.</span>
+                        <ng-template #passwordRequire>Password is required.</ng-template>
+                      </span>
                     </div>
-                  </div>
-                </ng-container>
-              </ng-template>
-            </form>
+                    <div class="form-group">
+                      <label for="password">Re-typ Password</label>
+                      <input type="password" class="form-control" id="retype_password" placeholder="retype_password"
+                        formControlName="retype_password" name="retype_password">
+                      <span class="form-field-error"
+                        *ngIf="(registerForm.get('candidateForm.retype_password').dirty || registerForm.get('candidateForm.retype_password').touched)">
+                        <span
+                          *ngIf=" !registerForm.get('candidateForm.retype_password').valid ; else retypepassword">Re-type
+                          password is required.</span>
+                        <ng-template #retypepassword><span *ngIf="candidateForm?.errors?.mismatch">Re-type password
+                            should
+                            be same.</span></ng-template>
+                      </span>
+
+                    </div>
+
+                    <div class="form-group">
+                      <input type="checkbox" id="termscondition" class="form-check-input" formControlName="agreeTerm"
+                        name="agreeTerm">
+                      <label class="form-check-label" for="termscondition">I agree with terms and conditions</label>
+                    </div>
+                    <div class="form-group">
+                      <button type="button" class="btn btn-primary" (click)="alreadyHaveAccount()">I ALREADY HAVE AN
+                        ACCOUNT</button>
+                      <button type="submit" class="btn btn-secondary"
+                        [disabled]="!registerForm?.controls?.candidateForm?.valid">SIGNUP NOW
+                      </button>
+                    </div>
+                  </ng-container>
+                </ng-template>
+                <!--**************** candiddate registration end **************** -->
+              </form>
+            </div>
           </div>
         </div>
       </div>

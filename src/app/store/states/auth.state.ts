@@ -2,7 +2,7 @@
 export interface AuthState {
     userData?: any;
     isLoggedIn: boolean;
-    status:string;    
+    success:number;    
     error?:any;
 }
 
@@ -12,7 +12,7 @@ export interface AuthRequestState{
 }
 
 export interface ResponseState{
-    status: string;
+    success: number;
     message: string;
     data: Object;
     error: Object;

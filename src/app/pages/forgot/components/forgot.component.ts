@@ -3,6 +3,11 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ForgotStoreService } from './../store/forgot.store';
 import { Subscription } from 'rxjs/Subscription'
 import { ForgotState } from '../store/forgot.state';
+import { Router } from '@angular/router'
+import { LoadingShowRequested } from './../../../store/actions/loading.action'
+import { Store } from '@ngrx/store'
+import { AppState } from 'src/app/store/states/app.state';
+import { LoadingState } from 'src/app/store/states/loading.state';
 @Component({
   selector: 'app-forgot',
   templateUrl: './forgot.component.html',
@@ -13,7 +18,9 @@ export class ForgotComponent implements OnInit, OnDestroy {
   public forgotSubscription: Subscription
   constructor(
     public formBuilder: FormBuilder,
-    public forgotStoreService: ForgotStoreService
+    public forgotStoreService: ForgotStoreService,
+    public router: Router,
+    public store: Store<AppState>
   ) {
   }
 
@@ -23,11 +30,18 @@ export class ForgotComponent implements OnInit, OnDestroy {
     })
 
     this.forgotSubscription = this.forgotStoreService.storeSelect().subscribe((response: ForgotState) => {
-      console.log("forgotInfo", response)
+      if (response.success) {
+        this.router.navigate(['auth'])
+      }
     })
   }
 
   public forgotEmail() {
+    let loadingdata: LoadingState = {
+      isLoading: true,
+      message: "Sending mail..."
+    }
+    this.store.dispatch(new LoadingShowRequested(loadingdata))
     this.forgotStoreService.dispatchForgotAction(this.forgotForm.value)
   }
 

@@ -4,18 +4,22 @@ import { AuthAction, authActionTypes } from './../actions/auth.action'
 export const authInitalState: AuthState = {
     userData: null,
     isLoggedIn: false,
-    status: null
+    success: null
 }
 
 export function authReducer(state = authInitalState, action: AuthAction): AuthState {
     switch (action.type) {
-        case authActionTypes.LOGIN_COMPLETED:
-            return Object.assign({}, state, action.payload)
+        case authActionTypes.LOGIN_COMPLETED: {
+            return Object.assign({}, state, action.payload);
+        }
 
-        case authActionTypes.LOGOUT_COMPLETED:
-            return Object.assign({}, state, action.payload)
-        
-        default:
-            return authInitalState
+        case authActionTypes.LOGOUT_COMPLETED: {
+            return authInitalState;
+        }
+
+        default: {
+            return state;
+        }
+
     }
 }

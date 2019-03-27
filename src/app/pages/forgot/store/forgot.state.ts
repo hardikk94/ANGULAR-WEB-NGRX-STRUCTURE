@@ -1,5 +1,5 @@
 export interface ForgotState{
-    status:string;
+    success:number;
     error?:any
     data?:any
 }

@@ -10,8 +10,8 @@
 
 export const environment = {
   production: false,
-  api_url:'https://api.qa.com/1.0/',
-  image_url:'https://api.qa.com/1.0/image/avatar/'
+  api_url:'https://api.dev.myteamchannel.us/1.0/',
+  image_url:'https://api.dev.myteamchannel.us/1.0/image/avatar/'
 };
 
 /*

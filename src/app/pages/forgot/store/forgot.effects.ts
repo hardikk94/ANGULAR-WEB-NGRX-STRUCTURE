@@ -5,6 +5,10 @@ import { ofType, Actions, Effect } from '@ngrx/effects';
 import { Observable } from 'rxjs';
 import { ForgotActionTypes, ForgotCompletedAction, ForgotError } from './forgot.action';
 import { ForgotState } from './forgot.state';
+import { LoadingState } from './../../../store/states/loading.state';
+import { ToastState } from './../../../store/states/toast.state';
+import { LoadingHideRequested } from './../../../store/actions/loading.action'
+import { ToastShowRequested } from './../../../store/actions/toast.action'
 
 @Injectable()
 export class ForgotEffects {
@@ -18,20 +22,41 @@ export class ForgotEffects {
             ofType(ForgotActionTypes.FORGOT_REQUESTED))
         .map(this.toPayload)
         .switchMap(payload => this.forgotService.forgotEmail(payload)
-            .mergeMap((res) => {
-                let response: ForgotState = {                                    
-                    status: "success",
-                    data:{}
+            .mergeMap((res: any) => {
+                let forgotresponse: ForgotState;
+                let loading: LoadingState = { isLoading: false, message: null }
+                let toast: ToastState;
+                if (res.success) {
+                    toast = { type: 'success', message: res.message, title: 'success', isToast: true }
+                    forgotresponse = {
+                        success: 1,
+                        data: res.data,
+                    }
+                }
+                else {
+                    toast = { type: 'error', message: res.error, title: 'error', isToast: true }
+                    forgotresponse = {
+                        success: 0,
+                        data: {},
+                        error: res.error
+                    }
                 }
                 return Observable.from([
-                    (new ForgotCompletedAction(response))
+                    (new ToastShowRequested(toast)),
+                    (new LoadingHideRequested(loading)),
+                    (new ForgotCompletedAction(forgotresponse))
                 ])
             }))
         .catch(this.handleError)
 
 
     private handleError(error) {
-        return Observable.of(new ForgotError({ error: error }));
+        let forgotError: ForgotState = {
+            success: 0,
+            data: {},
+            error: error
+        }
+        return Observable.of(new ForgotError(forgotError));
     }
 
 

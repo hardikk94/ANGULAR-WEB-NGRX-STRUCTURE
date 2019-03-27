@@ -3,7 +3,7 @@ import { ForgotAction, ForgotActionTypes } from './forgot.action'
 
 export const forgotInitalState: ForgotState = {
     data: null,
-    status: null
+    success: null
 }
 export function forgotReducer(state = forgotInitalState, action: ForgotAction): ForgotState {
     switch (action.type) {
@@ -14,8 +14,8 @@ export function forgotReducer(state = forgotInitalState, action: ForgotAction): 
             return Object.assign({}, state, action.payload)
 
         case ForgotActionTypes.FORGOT_RESET:
-            return Object.assign({}, state, forgotInitalState)
+            return forgotInitalState;
         default:
-            return forgotInitalState
+            return state
     }
 }

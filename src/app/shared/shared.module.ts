@@ -7,7 +7,8 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { RouterModule } from '@angular/router'
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { ImageViewerComponent } from './components/image-viewer/image-viewer.component'
+import { ImageViewerComponent } from './components/image-viewer/image-viewer.component';
+import { LoaderComponent } from './components/loader/loader.component'
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { ImageViewerComponent } from './components/image-viewer/image-viewer.com
     HeaderComponent,
     FooterComponent,
     ImageViewerComponent,
+    LoaderComponent,
   ],
   imports: [
     CommonModule,

@@ -1,57 +1,127 @@
 <div class="login-page-wrapper">
-  <div class="row">
-    <div class="col-5">
-      <div class="container">
-        <app-image-viewer imageURL="assets/image1.png" alternateText="Cambray Catering Recruitment wall image">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-5 col-md-6 leftside">
+        <app-image-viewer
+          imageURL="assets/img-leftside-login.png"
+          alternateText="Cambray Catering Recruitment wall image"
+        >
         </app-image-viewer>
       </div>
-    </div>
-    <div class="col-7">
-      <div class="container">
+      <div class="col-lg-7 col-md-6 rightside">
         <div class="login-form-wrapper">
-          <div class="logo-image card-img-top">
-            <app-image-viewer imageURL="assets/image1.png" alternateText="Cambray Catering Recruitment wall image">
+          <div class="logo-image">
+            <app-image-viewer
+              imageURL="assets/logo-login.png"
+              alternateText="Cambray Catering Recruitment wall image"
+            >
             </app-image-viewer>
           </div>
-          <span class="info-title">Welcome back!Please login to your account.</span>
+          <div class="info-title">
+            Welcome back!Please login to your account.
+          </div>
           <div class="login-form">
             <form [formGroup]="loginForm" (ngSubmit)="login()">
               <div class="form-group">
-                <label for="email">Email address<span>*</span></label>
-                <input type="email" class="form-control" id="email" placeholder="Enter email here..."
-                  formControlName="email" name="email" data-toggle="tooltip" data-placement="top"
-                  title="Enter email here">
-                <span id="emailHelp"
-                  *ngIf="loginForm.get('email').dirty && !loginForm.get('email').valid && loginForm.get('email')?.errors?.email"
-                  class="form-field-error">Email is not valid.</span>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="email"
+                  placeholder="Email"
+                  formControlName="email"
+                  name="email"
+                  data-toggle="tooltip"
+                  data-placement="top"
+                  title="Email"
+                />
+                <span
+                  *ngIf="
+                    (loginForm.get('email').dirty ||
+                      loginForm.get('email').touched) &&
+                    !loginForm.get('email').valid
+                  "
+                  class="form-field-error"
+                >
+                  <span
+                    *ngIf="
+                      loginForm.get('email')?.errors?.email;
+                      else emailRequire
+                    "
+                    >Email is not valid.</span
+                  >
+                  <ng-template #emailRequire>
+                    <span>Email is required..</span>
+                  </ng-template>
+                </span>
               </div>
 
               <div class="form-group">
-                <label for="password">Password<span>*</span></label>
-                <input type="password" class="form-control" id="password" placeholder="Enter password here..."
-                  formControlName="password" name="password" autocomplete="true" data-toggle="tooltip"
-                  data-placement="top" title="Enter password here...">
-                <span id="emailHelp"
-                  *ngIf="loginForm.get('password').dirty && !loginForm.get('password').valid && loginForm.get('password')?.errors?.minlength"
-                  class="form-field-error">Password should be minimum 8 character.</span>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="password"
+                  placeholder="password"
+                  formControlName="password"
+                  name="password"
+                  autocomplete="true"
+                  data-toggle="tooltip"
+                  data-placement="top"
+                  title="password"
+                />
+                <span
+                  *ngIf="
+                    (loginForm.get('password').dirty ||
+                      loginForm.get('password').touched) &&
+                    !loginForm.get('password').valid
+                  "
+                  class="form-field-error"
+                >
+                  <span
+                    *ngIf="
+                      loginForm.get('password')?.errors?.minlength;
+                      else passwordRequire
+                    "
+                    >Password should be minimum 8 characters long.</span
+                  >
+                  <ng-template #passwordRequire>
+                    <span>Password is required.</span>
+                  </ng-template>
+                </span>
               </div>
 
-              <div class="btn-row">
-                <div class="form-checkbox">
-                  <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                  <label class="form-check-label" for="exampleCheck1">Check me out</label>
+              <div class="rem-forgt-linksblock">
+                <div class="Checkbox__group">
+                  <input type="checkbox" id="check" />
+                  <label For="check">Remember me</label>
                 </div>
-                <button type="button" class="btn btn-primary" [routerLink]="['/forgot']">Forgot Password ?</button>
+                <a href="#" class="forgot-pagelink" [routerLink]="['/forgot']">
+                  Forgot Password ?
+                </a>
               </div>
 
-              <div class="btn-row">
-                <button type="submit" class="btn btn-primary" [disabled]="!loginForm.valid">Sign in</button>
-                <button type="button" class="btn btn-primary" [routerLink]="['/register']">Register</button>
+              <div class="action-btns-row">
+                <button
+                  type="button"
+                  class="btn btn-default"
+                  [routerLink]="['/register']"
+                >
+                  Sign up
+                </button>
+                <button
+                  type="submit"
+                  class="btn btn-primary"
+                  [disabled]="!loginForm.valid"
+                >
+                  Login
+                </button>
               </div>
-
             </form>
           </div>
-
+          <div class="terms-privacy-text">
+            <a href="#" title="Terms of use. Privacy Policy"
+              >Terms of use. Privacy Policy</a
+            >
+          </div>
         </div>
       </div>
     </div>

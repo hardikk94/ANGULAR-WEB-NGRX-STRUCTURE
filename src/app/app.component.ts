@@ -4,6 +4,9 @@ import { Store } from '@ngrx/store'
 import { AppState } from './store/states/app.state';
 import { LoadingState } from './store/states/loading.state';
 import { ToastState } from './store/states/toast.state';
+import { LoaderService } from './core/providers/loader.service';
+import { ToastService } from './core/providers/toast.service';
+import { ToastHideRequested } from './store/actions/toast.action';
 
 @Component({
   selector: 'app-root',
@@ -13,19 +16,35 @@ import { ToastState } from './store/states/toast.state';
 export class AppComponent implements OnInit, OnDestroy {
   public toastSubscription: Subscription
   public loadingSubscription: Subscription
+  public loadingText = "Loading..."
   constructor(
-    public store: Store<AppState>
+    private store: Store<AppState>,
+    public loadingService: LoaderService,
+    public toastService: ToastService
   ) {
 
   }
 
   public ngOnInit() {
+    // toast show and clear state
     this.toastSubscription = this.store.select('toastInfo').subscribe((toast: ToastState) => {
-      console.log("toast", toast)
+      if (toast.isToast) {
+        this.toastService.showToastMessage(toast.type, toast.title, toast.message)
+      }
+      else {
+        this.store.dispatch(new ToastHideRequested())
+      }
     })
 
+    // loading show and hide with clear state
     this.loadingSubscription = this.store.select('loadingInfo').subscribe((loading: LoadingState) => {
-      console.log("loading", loading)
+      if (loading.isLoading) {
+        this.loadingText = loading.message
+        this.loadingService.loadingShow()
+      }
+      else {
+        this.loadingService.loadingHide()
+      }
     })
   }
 

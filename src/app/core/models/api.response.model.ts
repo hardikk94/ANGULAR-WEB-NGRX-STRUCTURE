@@ -1,6 +1,6 @@
 export interface apiResponse{
     message:string;
-    status:string;
+    success:string;
     response:any;
     error?:any
     

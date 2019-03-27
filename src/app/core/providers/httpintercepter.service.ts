@@ -9,7 +9,7 @@ import { ResponseState } from './../../store/states/auth.state'
 export class HTTPintercepterService implements HttpInterceptor {
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    const token: string = localStorage.getItem('token');
+    const token: string = localStorage.getItem('authtoken');
     if (token) {
       request = request.clone({ headers: request.headers.set('Authorization', 'Bearer ' + token) });
     }
@@ -21,7 +21,7 @@ export class HTTPintercepterService implements HttpInterceptor {
         return event
       })).catch((error: HttpErrorResponse) => {
         let errorResponse: ResponseState = {
-          status: 'error',
+          success: 0,
           message: '',
           data: {},
           error: error

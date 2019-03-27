@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 import { authActionTypes, AuthErrorAction, LoginCompletedAction } from './../actions/auth.action';
 import { LoadingHideRequested } from './../actions/loading.action'
 import { ToastShowRequested } from './../actions/toast.action'
-import { AuthState } from '../states/auth.state';
+import { AuthState, ResponseState } from '../states/auth.state';
 import { LoadingState } from '../states/loading.state';
 import { ToastState } from '../states/toast.state';
 
@@ -22,32 +22,35 @@ export class AuthEffects {
             ofType(authActionTypes.LOGIN_REQUESTED))
         .map(this.toPayload)
         .switchMap(payload => this.authService.signIn(payload)
-            .mergeMap((res) => {
-                let response: AuthState = {
-                    userData: {},
-                    isLoggedIn: true,
-                    status: "success",
+            .mergeMap((res: any) => {
+                let loading: LoadingState = { isLoading: false, message: null }
+                let toast: ToastState;
+                let authResponse: AuthState;
+                if (res.success) {
+                    toast = { type: 'success', message: res.message, title: 'success', isToast: true }
+                    authResponse = { userData: res.data, isLoggedIn: true, success: res.success }
                 }
-                let loading: LoadingState = {
-                    isLoading: false
-                }
-
-                let toast: ToastState = {
-                    type: 'success',
-                    message: res.message,
-                    title: 'success'
+                else {
+                    toast = { type: 'error', message: res.error, title: 'error', isToast: true }
+                    authResponse = { userData: res.error, isLoggedIn: true, success: res.success, error: res.error }
                 }
                 return Observable.from([
-                    (new LoadingHideRequested(loading)),
                     (new ToastShowRequested(toast)),
-                    (new LoginCompletedAction(response))
+                    (new LoadingHideRequested(loading)),
+                    (new LoginCompletedAction(authResponse))
                 ])
             }))
         .catch(this.handleError)
 
 
     private handleError(error) {
-        return Observable.of(new AuthErrorAction({ error: error }));
+        let errorResponse: AuthState = {
+            success: 0,
+            isLoggedIn: false,
+            userData: {},
+            error: error
+        }
+        return Observable.of(new AuthErrorAction(errorResponse));
     }
 
 

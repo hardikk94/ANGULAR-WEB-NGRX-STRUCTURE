@@ -1,51 +1,189 @@
 /* You can add global styles to this file, and also import other style files */
-@import '~ngx-toastr/toastr.css';
-/*
-    DEMO STYLE
-*/
+@import "~ngx-toastr/toastr.css";
+
 body {
-    font-family: 'Poppins', sans-serif;
-    background: #fafafa;
+  font-family: "Poppins", sans-serif;
+  background: #fafafa;
 }
 
 p {
-    font-family: 'Poppins', sans-serif;
-    font-size: 1.1em;
-    font-weight: 300;
-    line-height: 1.7em;
-    color: #999;
+  font-family: "Poppins", sans-serif;
+  font-size: 1.1em;
+  font-weight: 300;
+  line-height: 1.7em;
+  color: #999;
 }
-a, a:hover, a:focus {
-    color: inherit;
-    text-decoration: none;
-    transition: all 0.3s;
+
+a,
+a:hover,
+a:focus {
+  color: inherit;
+  text-decoration: none;
+  transition: all 0.3s;
 }
 
 .navbar {
-    padding: 15px 10px;
-    background: #fff;
-    border: none;
-    border-radius: 0;
-    margin-bottom: 40px;
-    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+  padding: 15px 10px;
+  background: #fff;
+  border: none;
+  border-radius: 0;
+  margin-bottom: 40px;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .line {
-    width: 100%;
-    height: 1px;
-    border-bottom: 1px dashed #ddd;
-    margin: 40px 0;
+  width: 100%;
+  height: 1px;
+  border-bottom: 1px dashed #ddd;
+  margin: 40px 0;
 }
 
-input.ng-invalid.ng-dirty{
-    border: 2px solid red;
+input.ng-invalid.ng-dirty {
+  border-bottom: 2px solid red;
 }
 
-.form-field-error{
-    color:  red;
+.form-field-error {
+  color: red;
+  font-size: 12px;
+  margin: 6px 0 0;
+  display: flex;
+  align-items: flex-start;
 }
 
-.btn-row{
-    display: flex;   
-    justify-content: space-between;                            
+/*** inputs theme start  ***/
+.form-group {
+  .form-control {
+    border: none;
+    box-shadow: none;
+    border-bottom: 1px solid #667280;
+    border-radius: 0;
+    color: #222;
+    padding: 0;
+    height: 40px;
+    font-size: 14px;
+    line-height: 16px;
+    text-transform: capitalize;
+    background: none;
+    -webkit-appearance: none;
+    appearance: none;
+    &:hover {
+      border: none;
+      box-shadow: none;
+      border-bottom: 1px solid #667280;
+      background: none;
+    }
+    &:focus {
+      border: none;
+      box-shadow: none;
+      border-bottom: 1px solid #667280;
+      background: none;
+    }
+  }
+}
+
+/*** inputs theme end  ***/
+
+.btn {
+  border-radius: 0 !important;
+  width: 100%;
+  text-transform: uppercase;
+  font-size: 15px !important;
+  line-height: 26px !important;
+  height: 44px;
+}
+
+.btn-default {
+  background: none;
+  border: 2px solid #222 !important;
+  color: #222 !important;
+
+  &:hover {
+    background: #222;
+    border: 2px solid #222 !important;
+    color: #fff !important;
+  }
+}
+
+.btn-primary {
+  background: #86b070 !important;
+  border: 2px solid #86b070 !important;
+  color: #fff !important;
+
+  &:hover {
+    background: #74ab57 !important;
+    border: 2px solid #74ab57 !important;
+    color: #fff !important;
+  }
+}
+
+/*** checkout ***/
+
+.Checkbox__group {
+  position: relative;
+
+  [type="checkbox"]:checked,
+  [type="checkbox"]:not(:checked) {
+    position: absolute;
+    left: 0;
+    height: 18px;
+    width: 18px;
+    opacity: 0;
+  }
+
+  [type="checkbox"]:checked + label,
+  [type="checkbox"]:not(:checked) + label {
+    position: relative;
+    padding-left: 30px;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 18px;
+    color: #222;
+    margin: 0;
+  }
+
+  [type="checkbox"]:checked + label:before,
+  [type="checkbox"]:not(:checked) + label:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 18px;
+    height: 18px;
+    border: 2px solid #222;
+    border-radius: 2px;
+    background: transparent;
+  }
+
+  [type="checkbox"]:checked + label:before {
+    border-color: #222;
+  }
+
+  [type="checkbox"]:checked + label:after,
+  [type="checkbox"]:not(:checked) + label:after {
+    content: "";
+    width: 18px;
+    height: 18px;
+    // background: url(../../../../../assets/ico-check.svg) no-repeat center center;
+    background: url(../../staffapi-web-customer/src/assets/ico-check.svg)
+      no-repeat center center;
+    background-size: 10px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    border-color: #222;
+    border-radius: 2px;
+    transition: all 0.2s ease;
+  }
+
+  [type="checkbox"]:not(:checked) + label:after {
+    opacity: 0;
+    transform: scale(0);
+  }
+
+  [type="checkbox"]:checked + label:after {
+    opacity: 1;
+    transform: scale(1);
+  }
 }

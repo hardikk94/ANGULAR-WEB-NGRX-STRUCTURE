@@ -13,16 +13,10 @@ import { ShareModule } from './../shared/shared.module';
 import { AppRoutingModule } from './../app-routing.module';
 import { SessionStorageService } from './providers/session-storage.service'
 import { AuthGuardService } from './providers/auth.guard.service'
-import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { environment } from 'src/environments/environment';
-import { StoreModule } from "@ngrx/store";
-import { EffectsModule } from "@ngrx/effects";
-import { middlewareReducer } from './../store/reducers/middleware.reducer'
-import { reducers } from './../store/reducers/app.reducer'
-import { AuthEffects } from './../store/effects/auth.effects'
 import { AuthService } from './../store/providers/auth.service'
 import { AuthStoreService } from './../store/stores/auth.store'
-import { StoreRouterConnectingModule } from '@ngrx/router-store'
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { LoaderService } from './providers/loader.service'
 
 @NgModule({
     declarations: [
@@ -32,23 +26,18 @@ import { StoreRouterConnectingModule } from '@ngrx/router-store'
     imports: [
         CommonModule,
         BrowserAnimationsModule,
-        HttpClientModule,
-        StoreDevtoolsModule.instrument({
-            maxAge: 25,
-            logOnly: environment.production
-        }),
+        HttpClientModule,        
         ToastrModule.forRoot({
             toastComponent: ToastComponent,
         }),
         ShareModule,
-        AppRoutingModule,
-        StoreModule.forRoot(reducers, { metaReducers: middlewareReducer }),
-        EffectsModule.forRoot([AuthEffects]),
-        StoreRouterConnectingModule
+        AppRoutingModule,                        
+        NgxSpinnerModule
     ],
     exports: [
         ToastComponent,
-        AppRoutingModule
+        AppRoutingModule,
+        NgxSpinnerModule,        
     ],
     entryComponents: [ToastComponent],
     providers: [
@@ -60,7 +49,8 @@ import { StoreRouterConnectingModule } from '@ngrx/router-store'
         SessionStorageService,
         AuthGuardService,
         AuthStoreService,
-        AuthService
+        AuthService,
+        LoaderService
     ],
 })
 export class CoreModule {

@@ -8,7 +8,7 @@ const routes: Routes = [
     path: '',
     redirectTo: '/home',
     pathMatch: 'full',
-    canActivate:[AuthGuardService]
+    canActivate: [AuthGuardService]
   },
   {
     path: 'auth',
@@ -25,13 +25,13 @@ const routes: Routes = [
   {
     path: 'home',
     loadChildren: './pages/dashboard/dashboard.module#DashboardModule',
-    canActivate:[AuthGuardService]
+    canActivate: [AuthGuardService]
   },
   {
     path: 'not-found',
     component: PageNotFound404Component,
     pathMatch: 'full',
-  },  
+  },
   {
     path: '**',
     redirectTo: 'not-found',
