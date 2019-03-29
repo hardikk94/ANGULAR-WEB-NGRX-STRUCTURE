@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~ngx-toastr/toastr.css";
+@import "themes/theme";
 
 body {
   font-family: "Poppins", sans-serif;
@@ -45,9 +46,10 @@ input.ng-invalid.ng-dirty {
 .form-field-error {
   color: red;
   font-size: 12px;
-  margin: 6px 0 0;
+  margin: 4px 0 0;
   display: flex;
   align-items: flex-start;
+  position: absolute;
 }
 
 /*** inputs theme start  ***/
@@ -57,7 +59,7 @@ input.ng-invalid.ng-dirty {
     box-shadow: none;
     border-bottom: 1px solid #667280;
     border-radius: 0;
-    color: #222;
+    color: $black;
     padding: 0;
     height: 40px;
     font-size: 14px;
@@ -79,6 +81,24 @@ input.ng-invalid.ng-dirty {
       background: none;
     }
   }
+  .select-dropdown {
+    background: url(../src/assets/ico_downarrow.svg);
+    background-repeat: no-repeat;
+    background-size: 14px;
+    background-position: right 5px center;
+    &:hover {
+      background: url(../src/assets/ico_downarrow.svg);
+      background-repeat: no-repeat;
+      background-size: 14px;
+      background-position: right 5px center;
+    }
+    &:focus {
+      background: url(../src/assets/ico_downarrow.svg);
+      background-repeat: no-repeat;
+      background-size: 14px;
+      background-position: right 5px center;
+    }
+  }
 }
 
 /*** inputs theme end  ***/
@@ -94,19 +114,19 @@ input.ng-invalid.ng-dirty {
 
 .btn-default {
   background: none;
-  border: 2px solid #222 !important;
-  color: #222 !important;
+  border: 2px solid $black !important;
+  color: $black !important;
 
   &:hover {
-    background: #222;
-    border: 2px solid #222 !important;
+    background: $black;
+    border: 2px solid $black !important;
     color: #fff !important;
   }
 }
 
 .btn-primary {
-  background: #86b070 !important;
-  border: 2px solid #86b070 !important;
+  background: $light-green !important;
+  border: 2px solid $light-green !important;
   color: #fff !important;
 
   &:hover {
@@ -139,7 +159,7 @@ input.ng-invalid.ng-dirty {
     font-size: 13px;
     font-weight: 500;
     line-height: 18px;
-    color: #222;
+    color: $black;
     margin: 0;
   }
 
@@ -151,28 +171,26 @@ input.ng-invalid.ng-dirty {
     top: 0;
     width: 18px;
     height: 18px;
-    border: 2px solid #222;
+    border: 2px solid $black;
     border-radius: 2px;
     background: transparent;
   }
 
   [type="checkbox"]:checked + label:before {
-    border-color: #222;
+    border-color: $black;
   }
 
   [type="checkbox"]:checked + label:after,
   [type="checkbox"]:not(:checked) + label:after {
     content: "";
     width: 18px;
-    height: 18px;
-    // background: url(../../../../../assets/ico-check.svg) no-repeat center center;
-    background: url(../../staffapi-web-customer/src/assets/ico-check.svg)
-      no-repeat center center;
+    height: 18px;    
+    background:url("#{$rootImagePath}ico-check.svg") no-repeat center center;
     background-size: 10px;
     position: absolute;
     top: 0px;
     left: 0px;
-    border-color: #222;
+    border-color: $black;
     border-radius: 2px;
     transition: all 0.2s ease;
   }
@@ -187,3 +205,30 @@ input.ng-invalid.ng-dirty {
     transform: scale(1);
   }
 }
+
+// toaster design customization
+
+.toast-container .ngx-toastr{
+  padding: 0px 0px 5px 50px;
+}
+.upper-row{
+  display: flex;  
+  .upper-title{
+    flex: 1;
+    padding-top: 7px;
+  }
+}
+.down-row{
+  display:flex;
+  margin-top:-15px;
+}
+
+.toast-title{
+  white-space: normal
+}
+
+.toast-message{
+  white-space: normal
+} 
+
+

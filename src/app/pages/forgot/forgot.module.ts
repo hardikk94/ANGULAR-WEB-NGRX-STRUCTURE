@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { ShareModule } from './../../shared/shared.module';
+import { SharedModule } from './../../shared/shared.module';
 import { ForgotRoutingModule } from './forgot-routing.module';
 import { ForgotComponent } from './components/forgot.component';
 
@@ -16,7 +16,7 @@ import { forgotReducer } from './store/forgot.reducer'
     ForgotComponent
   ],
   imports: [
-    ShareModule,
+    SharedModule,
     ForgotRoutingModule,
     StoreModule.forFeature('forgotInfo', forgotReducer),
     EffectsModule.forFeature([ForgotEffects]),

@@ -2,20 +2,15 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-lg-5 col-md-6 leftside">
-        <app-image-viewer
-          imageURL="assets/img-leftside-login.png"
-          alternateText="Cambray Catering Recruitment wall image"
-        >
+        <app-image-viewer imageURL="assets/images/img-leftside-login.png"
+          alternateText="Cambray Catering Recruitment wall image">
         </app-image-viewer>
       </div>
       <div class="col-lg-7 col-md-6 rightside">
         <div class="forgot-form-wrapper">
           <div class="logo-image">
-            <app-image-viewer
-              imageURL="assets/logo-login.png"
-              alternateText="Cambray Catering Recruitment wall image"
-              class="logo-login"
-            >
+            <app-image-viewer imageURL="assets/images/logo-login.png" alternateText="Cambray Catering Recruitment wall image"
+              class="logo-login">
             </app-image-viewer>
           </div>
           <div class="info-title">
@@ -24,39 +19,23 @@
           <div class="forgot-form">
             <form [formGroup]="forgotForm" (ngSubmit)="forgotEmail()">
               <div class="form-group">
-                <input
-                  type="email"
-                  class="form-control"
-                  id="email"
-                  placeholder="Email"
-                  formControlName="email"
-                />
-                <span
-                  class="form-field-error"
-                  *ngIf="
+                <input type="email" class="form-control" id="email" placeholder="Email" formControlName="email" />
+                <span class="form-field-error" *ngIf="
                     !forgotForm.get('email').valid &&
                     forgotForm.get('email').dirty &&
                     forgotForm.get('email').errors?.email
-                  "
-                >
-                  Email is invalid.</span
-                >
+                  ">
+                  Email is invalid.</span>
               </div>
               <div class="action-btns-row">
-                <button
-                  type="button"
-                  class="btn btn-primary"
-                  [routerLink]="['/auth']"
-                >
+                <button type="submit" class="btn btn-primary" [disabled]="!forgotForm.valid">
                   Send Request
                 </button>
               </div>
             </form>
           </div>
           <div class="terms-privacy-text">
-            <a href="#" title="Terms of use. Privacy Policy"
-              >Terms of use. Privacy Policy</a
-            >
+            <a href="#" title="Terms of use. Privacy Policy">Terms of use. Privacy Policy</a>
           </div>
         </div>
       </div>

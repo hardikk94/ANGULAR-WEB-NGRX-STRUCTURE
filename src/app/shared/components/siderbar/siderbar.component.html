@@ -1,0 +1,110 @@
+<div class="wrapper">
+  <nav id="sidebar" class="sidemenu">
+    <div class="sidebar-header">
+      <div class="logo">Logo</div>
+    </div>
+
+    <ul class="menulists">
+      <li class="menuitem" routerLinkActive="active" #homerla="routerLinkActive">
+        <a [routerLink]="['/home']" title="HOME">
+          <img class="menu-icon"
+            src="{{homerla.isActive ? 'assets/images/ico_dashboard-active.svg' : 'assets/images/ico_dashboard.svg'}}"
+            alt="Dashboard" />
+          <span>HOME</span></a>
+      </li>
+      <li class="menuitem" routerLinkActive="active" #timesheetrla="routerLinkActive">
+        <a [routerLink]="['/timesheets']" title="TIMESHEETS">
+          <img class="menu-icon"
+            src="{{timesheetrla.isActive ? 'assets/images/ico_dashboard-active.svg' : 'assets/images/ico_dashboard.svg'}}"
+            alt="Inbox" />
+          <span>TIMESHEETS</span>
+        </a>
+      </li>
+      <!-- <li class="menuitem">
+        <a
+          title="placements"
+          href="#pageSubmenu"
+          data-toggle="collapse"
+          aria-expanded="false"
+          class="dropdown-toggle"
+        >
+          <img
+            class="menu-icon"
+            src="../../../../assets/images/ico_dashboard.svg"
+            alt="Inbox"
+          />
+          <span>CALENDAR</span>
+        </a>
+
+        <ul class="collapse" id="pageSubmenu" class="submenulist">
+          <li class="menuitem">
+            <a href="#" title="timesheets">
+              <img
+                class="menu-icon"
+                src="../../../../assets/images/ico_dashboard.svg"
+                alt="Timesheets"
+              />
+              <span>INVOICES</span>
+            </a>
+          </li>
+
+          <li class="menuitem">
+            <a href="#" title="vacancies">
+              <img
+                class="menu-icon"
+                src="../../../../assets/images/ico_dashboard.svg"
+                alt="Vacancies"
+              />
+              <span>COMPANY PROFILE</span>
+            </a>
+          </li>
+        </ul>
+      </li> -->
+
+      <li class="menuitem" routerLinkActive="active" #calendarrla="routerLinkActive">
+        <a [routerLink]="['/calendar']" title="CALENDAR">
+          <img class="menu-icon"
+            src="{{calendarrla.isActive ? 'assets/images/ico_dashboard-active.svg' : 'assets/images/ico_dashboard.svg'}}"
+            alt="Calendar" />
+          <span>CALENDAR</span>
+        </a>
+      </li>
+
+      <li class="menuitem" routerLinkActive="active" #invoicerla="routerLinkActive">
+        <a [routerLink]="['/invoices']" title="INVOICES">
+          <img class="menu-icon"
+            src="{{invoicerla.isActive ? 'assets/images/ico_dashboard-active.svg' : 'assets/images/ico_dashboard.svg'}}"
+            alt="Candidates" />
+          <span>INVOICES</span>
+        </a>
+      </li>
+
+      <li class="menuitem" routerLinkActive="active" #profilerla="routerLinkActive">
+        <a [routerLink]="['/company-profile']" title="COMPANY PROFILE">
+          <img class="menu-icon"
+            src="{{profilerla.isActive ? 'assets/images/ico_dashboard-active.svg' : 'assets/images/ico_dashboard.svg'}}"
+            alt="Clients" />
+          <span>COMPANY PROFILE</span>
+        </a>
+      </li>
+
+      <li class="menuitem" routerLinkActive="active" #helprla="routerLinkActive">
+        <a [routerLink]="['/help']" title="HELP">
+          <img class="menu-icon"
+            src="{{helprla.isActive ? 'assets/images/ico_dashboard-active.svg' : 'assets/images/ico_dashboard.svg'}}"
+            alt="Invoices" />
+          <span>HELP</span>
+        </a>
+      </li>
+
+      <li class="menuitem">
+        <a href="javascript;;" title="LOGOUT" (click)="logOut()">
+          <img class="menu-icon" src="assets/images/ico_dashboard.svg" alt="Setting" />
+          <span>LOGOUT</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <div id="content">
+  </div>
+</div>

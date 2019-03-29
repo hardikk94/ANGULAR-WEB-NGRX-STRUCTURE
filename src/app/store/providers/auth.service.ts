@@ -12,7 +12,7 @@ export class AuthService {
     return this.apiService.post('user/auth/', authData).catch((ex) => {
       let errorResponse: ResponseState = {
         success: 0,
-        message: '',
+        message: ex,
         data: {},
         error: ex
       }

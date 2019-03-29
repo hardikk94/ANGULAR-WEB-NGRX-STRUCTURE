@@ -27,11 +27,11 @@ export class AuthEffects {
                 let toast: ToastState;
                 let authResponse: AuthState;
                 if (res.success) {
-                    toast = { type: 'success', message: res.message, title: 'success', isToast: true }
+                    toast = { type: 'success', message: res.message, title: 'SUCCESS', isToast: true }
                     authResponse = { userData: res.data, isLoggedIn: true, success: res.success }
                 }
-                else {
-                    toast = { type: 'error', message: res.error, title: 'error', isToast: true }
+                else {                    
+                    toast = { type: 'error', message: res.error, title: 'ERROR', isToast: true }
                     authResponse = { userData: res.error, isLoggedIn: true, success: res.success, error: res.error }
                 }
                 return Observable.from([
@@ -43,14 +43,20 @@ export class AuthEffects {
         .catch(this.handleError)
 
 
-    private handleError(error) {
+    private handleError(error) {        
+        let loading: LoadingState = { isLoading: false, message: null }
+        let toast: ToastState = { type: 'error', message: error, title: 'ERROR', isToast: true }
         let errorResponse: AuthState = {
             success: 0,
             isLoggedIn: false,
             userData: {},
             error: error
         }
-        return Observable.of(new AuthErrorAction(errorResponse));
+        return Observable.from([
+            (new ToastShowRequested(toast)),
+            (new LoadingHideRequested(loading)),
+            (new AuthErrorAction(errorResponse))
+        ])
     }
 
 

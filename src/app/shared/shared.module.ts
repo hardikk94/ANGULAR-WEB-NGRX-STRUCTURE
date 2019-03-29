@@ -39,4 +39,4 @@ import { LoaderComponent } from './components/loader/loader.component'
 
   ]
 })
-export class ShareModule { }
+export class SharedModule { }

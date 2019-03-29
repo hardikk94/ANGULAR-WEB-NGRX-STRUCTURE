@@ -27,14 +27,14 @@ export class ForgotEffects {
                 let loading: LoadingState = { isLoading: false, message: null }
                 let toast: ToastState;
                 if (res.success) {
-                    toast = { type: 'success', message: res.message, title: 'success', isToast: true }
+                    toast = { type: 'success', message: res.message, title: 'SUCCESS', isToast: true }
                     forgotresponse = {
                         success: 1,
                         data: res.data,
                     }
                 }
                 else {
-                    toast = { type: 'error', message: res.error, title: 'error', isToast: true }
+                    toast = { type: 'error', message: res.error, title: 'ERROR', isToast: true }
                     forgotresponse = {
                         success: 0,
                         data: {},
@@ -51,12 +51,18 @@ export class ForgotEffects {
 
 
     private handleError(error) {
+        let loading: LoadingState = { isLoading: false, message: null }
+        let toast: ToastState = { type: 'error', message: error, title: 'ERROR', isToast: true }
         let forgotError: ForgotState = {
             success: 0,
             data: {},
             error: error
         }
-        return Observable.of(new ForgotError(forgotError));
+        return Observable.from([
+            (new ToastShowRequested(toast)),
+            (new LoadingHideRequested(loading)),
+            (new ForgotError(forgotError))
+        ])
     }
 
 

@@ -9,7 +9,7 @@ import { ToastService } from './providers/toast.service'
 import { ApiService } from './providers/api.service';
 import { HTTPintercepterService } from './providers/httpintercepter.service';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { ShareModule } from './../shared/shared.module';
+import { SharedModule } from './../shared/shared.module';
 import { AppRoutingModule } from './../app-routing.module';
 import { SessionStorageService } from './providers/session-storage.service'
 import { AuthGuardService } from './providers/auth.guard.service'
@@ -30,7 +30,7 @@ import { LoaderService } from './providers/loader.service'
         ToastrModule.forRoot({
             toastComponent: ToastComponent,
         }),
-        ShareModule,
+        SharedModule,
         AppRoutingModule,                        
         NgxSpinnerModule
     ],

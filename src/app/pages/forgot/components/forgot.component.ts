@@ -29,7 +29,7 @@ export class ForgotComponent implements OnInit, OnDestroy {
       email: ['', [Validators.required, Validators.email]]
     })
 
-    this.forgotSubscription = this.forgotStoreService.storeSelect().subscribe((response: ForgotState) => {
+    this.forgotSubscription = this.forgotStoreService.storeSelect().subscribe((response: ForgotState) => {      
       if (response.success) {
         this.router.navigate(['auth'])
       }
@@ -39,7 +39,7 @@ export class ForgotComponent implements OnInit, OnDestroy {
   public forgotEmail() {
     let loadingdata: LoadingState = {
       isLoading: true,
-      message: "Sending mail..."
+      message: "Please Wait, Sending mail..."
     }
     this.store.dispatch(new LoadingShowRequested(loadingdata))
     this.forgotStoreService.dispatchForgotAction(this.forgotForm.value)

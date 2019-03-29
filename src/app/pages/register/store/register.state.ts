@@ -1,5 +1,5 @@
 export interface RegisterState {
-    status: string;
+    success: number;
     error?: any
     data?: any
 }

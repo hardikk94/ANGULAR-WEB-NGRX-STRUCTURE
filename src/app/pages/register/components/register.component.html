@@ -1,33 +1,43 @@
 <div class="register-page-wrapper">
   <div class="container-fluid">
     <div class="row">
-      <div class="col-lg-5 col-md-6 leftside">
-        <app-image-viewer imageURL="assets/img-leftside-signup.png"
-          alternateText="Cambray Catering Recruitment wall image">
+      <div class="col-lg-5 col-md-6 col-xs-12 leftside">
+        <app-image-viewer
+          imageURL="assets/images/img-leftside-signup.png"
+          alternateText="Cambray Catering Recruitment wall image"
+        >
         </app-image-viewer>
       </div>
-      <div class="col-lg-7 col-md-6 rightside">
+      <div class="col-lg-7 col-md-6 col-xs-12 rightside">
         <div class="register-type">
-          <ul class="nav nav-pills nav-fill">
+          <ul class="nav nav-pills nav-fill main-navtab">
             <li class="nav-item">
-              <a class="nav-link" [ngClass]="{ active: registerType == 'candidate' }"
-                (click)="showRegisterForm('candidate')">I AM A CANDIDDATE</a>
+              <a
+                class="nav-link"
+                [ngClass]="{ active: registerType == 'candidate' }"
+                (click)="showRegisterForm('candidate')"
+                >I AM A CANDIDDATE</a
+              >
             </li>
             <li class="nav-item">
-              <a class="nav-link" [ngClass]="{ active: registerType == 'client' }"
-                (click)="showRegisterForm('client')">I AM A CLIENT</a>
+              <a
+                class="nav-link"
+                [ngClass]="{ active: registerType == 'client' }"
+                (click)="showRegisterForm('client')"
+                >I AM A CLIENT</a
+              >
             </li>
           </ul>
 
           <div class="register-form-wrapper">
             <div class="logo-image">
-              <app-image-viewer imageURL="assets/logo-login.png"
+              <app-image-viewer imageURL="assets/images/logo-login.png"
                 alternateText="Cambray Catering Recruitment wall image">
               </app-image-viewer>
             </div>
             <div class="register-form">
               <form [formGroup]="registerForm" (ngSubmit)="register()">
-                <!-- ****************candiddate registartion start********************* -->
+                <!-- ****************client registartion start********************* -->
                 <ng-template #clientRegister>
                   <div class="info-title">
                     Register a Client Account.Please fill in the details below
@@ -36,16 +46,36 @@
                   <div class="step-wizard">
                     <ul class="nav nav-tabs">
                       <li class="nav-item">
-                        <a class="nav-link" [ngClass]="{ active: currentStep == 'persion-info' }"
-                          (click)="goToNextStep('persion-info')">Personal Info</a>
+                        <a
+                          class="nav-link"
+                          [ngClass]="{ active: currentStep == 'persion-info' }"
+                        >
+                          <div class="stepsnumber">1</div>
+                          <div class="stepsname">Personal Info</div>
+                        </a>
+
+                        <!-- (click)="goToNextStep('persion-info')" -->
+                      </li>
+                      <li class="nav-item nav-business-info">
+                        <a
+                          class="nav-link"
+                          [ngClass]="{ active: currentStep == 'business-info' }"
+                        >
+                          <div class="stepsnumber">2</div>
+                          <div class="stepsname">Business Info</div>
+                        </a>
+
+                        <!-- (click)="goToNextStep('business-info')" -->
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" [ngClass]="{ active: currentStep == 'business-info' }"
-                          (click)="goToNextStep('business-info')">Business Info</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" [ngClass]="{ active: currentStep == 'account-info' }"
-                          (click)="goToNextStep('account-info')">Account Info</a>
+                        <a
+                          class="nav-link"
+                          [ngClass]="{ active: currentStep == 'account-info' }"
+                        >
+                          <div class="stepsnumber">3</div>
+                          <div class="stepsname">Account Info</div>
+                        </a>
+                        <!-- (click)="goToNextStep('account-info')" -->
                       </li>
                     </ul>
                   </div>
@@ -57,49 +87,175 @@
                         <ng-container formGroupName="persionDetailForm">
                           <div class="form-group">
                             <div class="full-name">
-                              <div>
-                                <input type="text" class="form-control" id="first_name" placeholder="First Name"
-                                  formControlName="first_name" name="first_name" />
+                              <div class="nameblock">
+                                <input
+                                  type="text"
+                                  class="form-control"
+                                  id="first_name"
+                                  placeholder="First Name"
+                                  formControlName="first_name"
+                                  name="first_name"
+                                />
+                                <span
+                                  class="form-field-error"
+                                  *ngIf="
+                                    (persionDetailForm.get('first_name')
+                                      .dirty ||
+                                      persionDetailForm.get('first_name')
+                                        .touched) &&
+                                    persionDetailForm.get('first_name')?.errors
+                                      ?.required
+                                  "
+                                >
+                                  First name is required.
+                                </span>
                               </div>
-                              <div>
-                                <input type="text" class="form-control" id="last_name" placeholder="Last Name"
-                                  formControlName="last_name" name="last_name" />
+                              <div class="nameblock">
+                                <input
+                                  type="text"
+                                  class="form-control"
+                                  id="last_name"
+                                  placeholder="Last Name"
+                                  formControlName="last_name"
+                                  name="last_name"
+                                />
+                                <span
+                                  class="form-field-error"
+                                  *ngIf="
+                                    (persionDetailForm.get('last_name').dirty ||
+                                      persionDetailForm.get('last_name')
+                                        .touched) &&
+                                    persionDetailForm.get('last_name')?.errors
+                                      ?.required
+                                  "
+                                >
+                                  Last name is required.
+                                </span>
                               </div>
                             </div>
                           </div>
 
                           <div class="form-group">
-                            <input type="text" class="form-control" id="job_title" placeholder="Job Title"
-                              formControlName="job_title" name="job_title" />
+                            <input
+                              type="text"
+                              class="form-control"
+                              id="job_title"
+                              placeholder="Job Title"
+                              formControlName="job_title"
+                              name="job_title"
+                            />
+                            <span
+                              class="form-field-error"
+                              *ngIf="
+                                (persionDetailForm.get('job_title').dirty ||
+                                  persionDetailForm.get('job_title').touched) &&
+                                persionDetailForm.get('job_title')?.errors
+                                  ?.required
+                              "
+                            >
+                              Job title is required.
+                            </span>
                           </div>
                           <div class="form-group">
-                            <select id="occupation" class="form-control" placeholder="Ocuupation"
-                              formControlName="ocuupation" name="cuupation">
-                              <option *ngFor="let occuoation of occupationList" [value]="occuoation.id">
+                            <select
+                              id="occupation"
+                              class="form-control select-dropdown"
+                              placeholder="Ocuupation"
+                              formControlName="ocuupation"
+                              name="cuupation"
+                            >
+                              <option
+                                *ngFor="let occuoation of occupationList"
+                                [value]="occuoation.id"
+                              >
                                 {{ occuoation.name }}
                               </option>
                             </select>
+                            <span
+                              class="form-field-error"
+                              *ngIf="
+                                (persionDetailForm.get('ocuupation').dirty ||
+                                  persionDetailForm.get('ocuupation')
+                                    .touched) &&
+                                persionDetailForm.get('ocuupation')?.errors
+                                  ?.notselected
+                              "
+                            >
+                              Ocuupation is required.
+                            </span>
                           </div>
 
                           <div class="form-group">
-                            <input type="text" class="form-control" id="business_type" placeholder="Business Name"
-                              formControlName="ocuupation_name" name="ocuupation_name" />
+                            <input
+                              type="text"
+                              class="form-control"
+                              id="business_type"
+                              placeholder="Business Name"
+                              formControlName="ocuupation_name"
+                              name="ocuupation_name"
+                            />
+                            <span
+                              class="form-field-error"
+                              *ngIf="
+                                (persionDetailForm.get('ocuupation_name')
+                                  .dirty ||
+                                  persionDetailForm.get('ocuupation_name')
+                                    .touched) &&
+                                persionDetailForm.get('ocuupation_name')?.errors
+                                  ?.required
+                              "
+                            >
+                              Ocuupation is required.
+                            </span>
                           </div>
 
                           <div class="form-group">
-                            <input type="email" class="form-control" id="email" placeholder="Email"
-                              formControlName="email" name="email" />
+                            <input
+                              type="email"
+                              class="form-control"
+                              id="email"
+                              placeholder="Email"
+                              formControlName="email"
+                              name="email"
+                            />
+                            <span
+                              class="form-field-error"
+                              *ngIf="
+                                (persionDetailForm.get('email').dirty ||
+                                  persionDetailForm.get('email').touched) &&
+                                !persionDetailForm.get('email').valid
+                              "
+                            >
+                              <span
+                                *ngIf="
+                                  persionDetailForm.get('email')?.errors?.email;
+                                  else emailRequire
+                                "
+                                >Email is invalid.</span
+                              >
+                              <ng-template #emailRequire
+                                >Email is required.</ng-template
+                              >
+                            </span>
                           </div>
 
-                          <div class="action-btns-row">
-                            <button type="button" class="btn btn-default" (click)="alreadyHaveAccount()">
-                              I ALL READY HAVE AN ACCOUNT
+                          <div class="action-btns-row persion-info-actionbtn">
+                            <button
+                              type="button"
+                              class="btn btn-default"
+                              (click)="alreadyHaveAccount()"
+                            >
+                              I ALREADY HAVE AN ACCOUNT
                             </button>
-                            <button type="button" class="btn btn-primary" (click)="goToNextStep('business-info')"
+                            <button
+                              type="button"
+                              class="btn btn-primary"
+                              (click)="goToNextStep('business-info')"
                               [disabled]="
                                 !registerForm?.controls?.clientForm?.controls
                                   .persionDetailForm?.valid
-                              ">
+                              "
+                            >
                               NEXT
                             </button>
                           </div>
@@ -108,54 +264,211 @@
                       <!-- ****************** Personal info end************************ -->
 
                       <!-- ****************** Bussiness info start ************************ -->
-                      <div class="business-info" *ngSwitchCase="'business-info'">
+                      <div
+                        class="business-info"
+                        *ngSwitchCase="'business-info'"
+                      >
                         <ng-container formGroupName="businessDetailForm">
                           <div class="form-group">
                             <div class="phone-info">
-                              <div>
-                                <input type="tel" class="form-control" id="phone_no" placeholder="Phone Nr"
-                                  formControlName="phone_no" name="phone_no" />
+                              <div class="number-block">
+                                <input
+                                  type="tel"
+                                  class="form-control"
+                                  id="phone_no"
+                                  placeholder="Phone No"
+                                  formControlName="phone_no"
+                                  name="phone_no"
+                                />
+                                <span
+                                  class="form-field-error"
+                                  *ngIf="
+                                    (businessDetailForm.get('phone_no').dirty ||
+                                      businessDetailForm.get('phone_no')
+                                        .touched) &&
+                                    businessDetailForm.get('phone_no').invalid
+                                  "
+                                >
+                                  <span
+                                    *ngIf="
+                                      businessDetailForm.get('phone_no').errors
+                                        ?.pattern;
+                                      else phoneValidate
+                                    "
+                                    >Phone number is invalid.</span
+                                  >
+                                  <ng-template #phoneValidate
+                                    >Phone number is required.</ng-template
+                                  >
+                                </span>
                               </div>
-                              <div>
-                                <input type="tel" class="form-control" id="mobile_no" placeholder="Mobile Nr"
-                                  formControlName="mobile_no" name="mobile_no" />
+                              <div class="number-block">
+                                <input
+                                  type="tel"
+                                  class="form-control"
+                                  id="mobile_no"
+                                  placeholder="Mobile No"
+                                  formControlName="mobile_no"
+                                  name="mobile_no"
+                                />
+                                <span
+                                  class="form-field-error"
+                                  *ngIf="
+                                    (businessDetailForm.get('mobile_no')
+                                      .dirty ||
+                                      businessDetailForm.get('mobile_no')
+                                        .touched) &&
+                                    businessDetailForm.get('mobile_no').invalid
+                                  "
+                                >
+                                  <span
+                                    *ngIf="
+                                      businessDetailForm.get('mobile_no').errors
+                                        ?.pattern;
+                                      else mobileValidate
+                                    "
+                                    >Mobile number is invalid.</span
+                                  >
+                                  <ng-template #mobileValidate
+                                    >Mobile number is required.</ng-template
+                                  >
+                                </span>
                               </div>
                             </div>
                           </div>
 
                           <div class="form-group">
-                            <input type="text" id="addressline1" class="form-control" placeholder="Addressline1"
-                              formControlName="addressline1" name="addressline1" />
+                            <input
+                              type="text"
+                              id="addressline1"
+                              class="form-control"
+                              placeholder="Addressline1"
+                              formControlName="addressline1"
+                              name="addressline1"
+                            />
+                            <span
+                              class="form-field-error"
+                              *ngIf="
+                                (businessDetailForm.get('addressline1').dirty ||
+                                  businessDetailForm.get('addressline1')
+                                    .touched) &&
+                                businessDetailForm.get('addressline1')?.errors
+                                  ?.required
+                              "
+                            >
+                              Address Line 1 is required.
+                            </span>
+                          </div>
+                          <div class="form-group">
+                            <input
+                              type="text"
+                              id="addressline2"
+                              class="form-control"
+                              placeholder="Addressline2"
+                              formControlName="addressline2"
+                              name="addressline2"
+                            />
+                            <span
+                              class="form-field-error"
+                              *ngIf="
+                                (businessDetailForm.get('addressline2').dirty ||
+                                  businessDetailForm.get('addressline2')
+                                    .touched) &&
+                                businessDetailForm.get('addressline2')?.errors
+                                  ?.required
+                              "
+                            >
+                              Address Line 2 is required.
+                            </span>
+                          </div>
 
-                            <input type="text" id="addressline2" class="form-control" placeholder="Addressline2"
-                              formControlName="addressline2" name="addressline2" />
-
-                            <input type="text" id="addressline3" class="form-control" placeholder="Addressline3"
-                              formControlName="addressline3" name="addressline3" />
+                          <div class="form-group">
+                            <input
+                              type="text"
+                              id="addressline3"
+                              class="form-control"
+                              placeholder="Addressline3"
+                              formControlName="addressline3"
+                              name="addressline3"
+                            />
+                            <span
+                              class="form-field-error"
+                              *ngIf="
+                                (businessDetailForm.get('addressline3').dirty ||
+                                  businessDetailForm.get('addressline3')
+                                    .touched) &&
+                                businessDetailForm.get('addressline3')?.errors
+                                  ?.required
+                              "
+                            >
+                              Address Line 3 is required.
+                            </span>
                           </div>
 
                           <div class="form-group">
                             <div class="zip-info">
-                              <div>
-                                <input type="text" id="town" placeholder="Town" class="form-control"
-                                  formControlName="town" name="town" />
+                              <div class="zip-column">
+                                <input
+                                  type="text"
+                                  id="town"
+                                  placeholder="Town"
+                                  class="form-control"
+                                  formControlName="town"
+                                  name="town"
+                                />
+                                <span
+                                  class="form-field-error"
+                                  *ngIf="
+                                    (businessDetailForm.get('town').dirty ||
+                                      businessDetailForm.get('town').touched) &&
+                                    businessDetailForm.get('town')?.errors
+                                      ?.required
+                                  "
+                                >
+                                  Town is required.
+                                </span>
                               </div>
-                              <div>
-                                <input type="text" id="zip_code" placeholder="Zip Code" class="form-control"
-                                  formControlName="zip_code" name="zip_code" />
+                              <div class="zip-column">
+                                <input
+                                  type="text"
+                                  id="zip_code"
+                                  placeholder="Zip Code"
+                                  class="form-control"
+                                  formControlName="zip_code"
+                                  name="zip_code"
+                                />
+                                <span
+                                  class="form-field-error"
+                                  *ngIf="
+                                    (businessDetailForm.get('town').zip_code ||
+                                      businessDetailForm.get('town').touched) &&
+                                    businessDetailForm.get('zip_code')?.errors
+                                      ?.required
+                                  "
+                                >
+                                  Zip code is required.
+                                </span>
                               </div>
                             </div>
                           </div>
 
-                          <div class="form-group">
-                            <button type="button" class="btn btn-primary" (click)="goToNextStep('persion-info')">
+                          <div class="action-btns-row btn-50">
+                            <button
+                              type="button"
+                              class="btn btn-default"
+                              (click)="goToNextStep('persion-info')"
+                            >
                               CANCEL
                             </button>
-                            <button type="button" class="btn btn-secondary" (click)="goToNextStep('account-info')"
+                            <button
+                              type="button"
+                              class="btn btn-primary"
+                              (click)="goToNextStep('account-info')"
                               [disabled]="
                                 !registerForm?.controls?.clientForm?.controls
                                   .businessDetailForm?.valid
-                              ">
+                              "
+                            >
                               NEXT
                             </button>
                           </div>
@@ -167,30 +480,133 @@
                       <div class="account-info" *ngSwitchCase="'account-info'">
                         <ng-container formGroupName="accountDetailForm">
                           <div class="form-group">
-                            <input type="text" class="form-control" id="email" placeholder="Email"
-                              formControlName="email" name="email" />
+                            <input
+                              type="text"
+                              class="form-control"
+                              id="email"
+                              placeholder="Email"
+                              formControlName="email"
+                              name="email"
+                            />
+                            <span
+                              class="form-field-error"
+                              *ngIf="
+                                (accountDetailForm.get('email').dirty ||
+                                  accountDetailForm.get('email').touched) &&
+                                !accountDetailForm.get('email').valid
+                              "
+                            >
+                              <span
+                                *ngIf="
+                                  accountDetailForm.get('email')?.errors?.email;
+                                  else emailRequire
+                                "
+                                >Email is invalid.</span
+                              >
+                              <ng-template #emailRequire
+                                >Email is required.</ng-template
+                              >
+                            </span>
                           </div>
                           <div class="form-group">
-                            <input type="text" class="form-control" id="password" placeholder="password"
-                              formControlName="password" name="password" />
-
-                            <input type="text" class="form-control" id="confirm_password" placeholder="Confirm Password"
-                              formControlName="confirm_password" name="confirm_password" />
+                            <input
+                              type="text"
+                              class="form-control"
+                              id="password"
+                              placeholder="password"
+                              formControlName="password"
+                              name="password"
+                            />
+                            <span
+                              class="form-field-error"
+                              *ngIf="
+                                (accountDetailForm.get('password').dirty ||
+                                  accountDetailForm.get('password').touched) &&
+                                !accountDetailForm.get('password').valid
+                              "
+                            >
+                              <span
+                                *ngIf="
+                                  accountDetailForm.get('password')?.errors
+                                    ?.minlength;
+                                  else passwordRequire
+                                "
+                                >Password should be minimum 8 characters
+                                long.</span
+                              >
+                              <ng-template #passwordRequire
+                                >Password is required.</ng-template
+                              >
+                            </span>
                           </div>
 
-                          <div class="Checkbox__group">
-                            <input id="check" type="checkbox" />
-                            <label for="check">I agree with terms and conditions</label>
-                          </div>
                           <div class="form-group">
-                            <button type="button" class="btn btn-primary" (click)="goToNextStep('business-info')"
+                            <input
+                              type="text"
+                              class="form-control"
+                              id="retype_password"
+                              placeholder="Confirm Password"
+                              formControlName="retype_password"
+                              name="retype_password"
+                            />
+                            <span
+                              class="form-field-error"
+                              *ngIf="
+                                accountDetailForm.get('retype_password')
+                                  .dirty ||
+                                accountDetailForm.get('retype_password').touched
+                              "
+                            >
+                              <span
+                                *ngIf="
+                                  accountDetailForm?.errors?.mismatch;
+                                  else retypepasswordRequire
+                                "
+                                >Confirm password should be same to the
+                                password.</span
+                              >
+                              <ng-template #retypepasswordRequire>
+                                <span
+                                  *ngIf="
+                                    !accountDetailForm.get('retype_password')
+                                      .valid
+                                  "
+                                  >Password is required.</span
+                                >
+                              </ng-template>
+                            </span>
+                          </div>
+
+                          <div class="ac-info-tc">
+                            <div class="Checkbox__group">
+                              <input
+                                id="check"
+                                type="checkbox"
+                                class="form-control"
+                                name="agreeTerm"
+                                formControlName="agreeTerm"
+                              />
+                              <label for="check"
+                                >I agree with terms and conditions</label
+                              >
+                            </div>
+                          </div>
+                          <div class="action-btns-row btn-50">
+                            <button
+                              type="button"
+                              class="btn btn-default"
+                              (click)="goToNextStep('business-info')"
+                            >
+                              CANCEL
+                            </button>
+                            <button
+                              type="submit"
+                              class="btn btn-primary"
                               [disabled]="
                                 !registerForm?.controls?.clientForm?.controls
                                   .accountDetailForm?.valid
-                              ">
-                              CANCEL
-                            </button>
-                            <button type="button" class="btn btn-secondary">
+                              "
+                            >
                               CREATE ACCOUNT
                             </button>
                           </div>
@@ -203,101 +619,231 @@
                 <!-- ****************client registartion end********************* -->
 
                 <!--**************** candiddate registration start **************** -->
-                <ng-template [ngIf]="registerType == 'candidate'" [ngIfElse]="clientRegister">
+                <ng-template
+                  [ngIf]="registerType == 'candidate'"
+                  [ngIfElse]="clientRegister"
+                >
                   <ng-container formGroupName="candidateForm">
-                    <span class="info-title">Register a Candidate Account.Please fill in the details below.</span>
+                    <span class="info-title"
+                      >Register a Candidate Account.Please fill in the details
+                      below.</span
+                    >
                     <div class="form-group">
                       <div class="full-name">
-                        <div>
-                          <label for="first_name">First Name</label>
-                          <input type="text" class="form-control" id="first_name" placeholder="First Name"
-                            name="first_name" formControlName="first_name">
-                          <span *ngIf="(registerForm.get('candidateForm.first_name').dirty || registerForm.get('candidateForm.first_name').touched) 
-                              && !registerForm.get('candidateForm.first_name').valid" class="form-field-error">
+                        <div class="nameblock">
+                          <input
+                            type="text"
+                            class="form-control"
+                            id="first_name"
+                            placeholder="First Name"
+                            name="first_name"
+                            formControlName="first_name"
+                          />
+                          <span
+                            *ngIf="
+                              (registerForm.get('candidateForm.first_name')
+                                .dirty ||
+                                registerForm.get('candidateForm.first_name')
+                                  .touched) &&
+                              !registerForm.get('candidateForm.first_name')
+                                .valid
+                            "
+                            class="form-field-error"
+                          >
                             First name is required.
                           </span>
                         </div>
-                        <div>
-                          <label for="last_name">Last Name</label>
-                          <input type="text" class="form-control" id="last_name" placeholder="Last Name"
-                            name="last_name" formControlName="last_name">
-                          <span *ngIf="(registerForm.get('candidateForm.last_name').dirty || registerForm.get('candidateForm.last_name').touched) 
-                              && !registerForm.get('candidateForm.last_name').valid" class="form-field-error">
-                            First name is required.
+                        <div class="nameblock">
+                          <input
+                            type="text"
+                            class="form-control"
+                            id="last_name"
+                            placeholder="Last Name"
+                            name="last_name"
+                            formControlName="last_name"
+                          />
+                          <span
+                            *ngIf="
+                              (registerForm.get('candidateForm.last_name')
+                                .dirty ||
+                                registerForm.get('candidateForm.last_name')
+                                  .touched) &&
+                              !registerForm.get('candidateForm.last_name').valid
+                            "
+                            class="form-field-error"
+                          >
+                            Last name is required.
                           </span>
                         </div>
                       </div>
                     </div>
                     <div class="form-group">
-                      <label for="occupation">Occupation</label>
-                      <select id="occupation" class="form-control" placeholder="Ocuupation" formControlName="occuoation"
-                        name="occuoation">
-                        <option *ngFor="let occuoation of occupationList" [value]="occuoation.id">
-                          {{occuoation.name}}
+                      <select
+                        id="occupation"
+                        class="form-control select-dropdown"
+                        placeholder="Ocuupation"
+                        formControlName="occuoation"
+                        name="occuoation"
+                      >
+                        <option
+                          *ngFor="let occuoation of occupationList"
+                          [value]="occuoation.id"
+                        >
+                          {{ occuoation.name }}
                         </option>
                       </select>
-                      <span class="form-field-error"
-                        *ngIf="(registerForm.get('candidateForm.occuoation').dirty || registerForm.get('candidateForm.occuoation').touched) && !registerForm.get('candidateForm.occuoation').valid && !registerForm.get('candidateForm.occuoation').notselected">Please
-                        select occupation.</span>
-                    </div>
-
-                    <div class="form-group">
-                      <label for="email">Email</label>
-                      <input type="email" class="form-control" id="email" placeholder="Email" formControlName="email"
-                        name="email">
                       <span
-                        *ngIf="(registerForm.get('candidateForm.email').dirty || registerForm.get('candidateForm.email').touched) && !registerForm.get('candidateForm.email').valid"
-                        class="form-field-error">
-                        <span *ngIf="registerForm.get('candidateForm.email')?.errors?.email ; else emailRequire">Email
-                          is
-                          invalid.</span>
-                        <ng-template #emailRequire>Email is required.</ng-template>
-                      </span>
-                    </div>
-                    <div class="form-group">
-                      <label for="password">Password</label>
-                      <input type="password" class="form-control" id="password" placeholder="password"
-                        formControlName="password" name="password">
-                      <span class="form-field-error"
-                        *ngIf="(registerForm.get('candidateForm.password').dirty || registerForm.get('candidateForm.password').touched) && !registerForm.get('candidateForm.password').valid">
-                        <span
-                          *ngIf="registerForm.get('candidateForm.password')?.errors?.minlength ; else passwordRequire">Password
-                          should be minimum 8 characters long.</span>
-                        <ng-template #passwordRequire>Password is required.</ng-template>
-                      </span>
-                    </div>
-                    <div class="form-group">
-                      <label for="password">Re-typ Password</label>
-                      <input type="password" class="form-control" id="retype_password" placeholder="retype_password"
-                        formControlName="retype_password" name="retype_password">
-                      <span class="form-field-error"
-                        *ngIf="(registerForm.get('candidateForm.retype_password').dirty || registerForm.get('candidateForm.retype_password').touched)">
-                        <span
-                          *ngIf=" !registerForm.get('candidateForm.retype_password').valid ; else retypepassword">Re-type
-                          password is required.</span>
-                        <ng-template #retypepassword><span *ngIf="candidateForm?.errors?.mismatch">Re-type password
-                            should
-                            be same.</span></ng-template>
-                      </span>
-
+                        class="form-field-error"
+                        *ngIf="
+                          (registerForm.get('candidateForm.occuoation').dirty ||
+                            registerForm.get('candidateForm.occuoation')
+                              .touched) &&
+                          !registerForm.get('candidateForm.occuoation').valid &&
+                          !registerForm.get('candidateForm.occuoation')
+                            .notselected
+                        "
+                        >Ocuupation is required.</span
+                      >
                     </div>
 
                     <div class="form-group">
-                      <input type="checkbox" id="termscondition" class="form-check-input" formControlName="agreeTerm"
-                        name="agreeTerm">
-                      <label class="form-check-label" for="termscondition">I agree with terms and conditions</label>
+                      <input
+                        type="email"
+                        class="form-control"
+                        id="email"
+                        placeholder="Email"
+                        formControlName="email"
+                        name="email"
+                      />
+                      <span
+                        *ngIf="
+                          (registerForm.get('candidateForm.email').dirty ||
+                            registerForm.get('candidateForm.email').touched) &&
+                          !registerForm.get('candidateForm.email').valid
+                        "
+                        class="form-field-error"
+                      >
+                        <span
+                          *ngIf="
+                            registerForm.get('candidateForm.email')?.errors
+                              ?.email;
+                            else emailRequire
+                          "
+                          >Email is invalid.</span
+                        >
+                        <ng-template #emailRequire
+                          >Email is required.</ng-template
+                        >
+                      </span>
                     </div>
                     <div class="form-group">
-                      <button type="button" class="btn btn-primary" (click)="alreadyHaveAccount()">I ALREADY HAVE AN
-                        ACCOUNT</button>
-                      <button type="submit" class="btn btn-secondary"
-                        [disabled]="!registerForm?.controls?.candidateForm?.valid">SIGNUP NOW
+                      <input
+                        type="password"
+                        class="form-control"
+                        id="password"
+                        placeholder="password"
+                        formControlName="password"
+                        name="password"
+                      />
+                      <span
+                        class="form-field-error"
+                        *ngIf="
+                          (registerForm.get('candidateForm.password').dirty ||
+                            registerForm.get('candidateForm.password')
+                              .touched) &&
+                          !registerForm.get('candidateForm.password').valid
+                        "
+                      >
+                        <span
+                          *ngIf="
+                            registerForm.get('candidateForm.password')?.errors
+                              ?.minlength;
+                            else passwordRequire
+                          "
+                          >Password should be minimum 8 characters long.</span
+                        >
+                        <ng-template #passwordRequire
+                          >Password is required.</ng-template
+                        >
+                      </span>
+                    </div>
+                    <div class="form-group">
+                      <input
+                        type="password"
+                        class="form-control"
+                        id="retype_password"
+                        placeholder="Confirm Password"
+                        formControlName="retype_password"
+                        name="retype_password"
+                      />
+                      <span
+                        class="form-field-error"
+                        *ngIf="
+                          registerForm.get('candidateForm.retype_password')
+                            .dirty ||
+                          registerForm.get('candidateForm.retype_password')
+                            .touched
+                        "
+                      >
+                        <span
+                          *ngIf="
+                            !registerForm.get('candidateForm.retype_password')
+                              .valid;
+                            else retypepassword
+                          "
+                          >Confirm password is required.</span
+                        >
+                        <ng-template #retypepassword
+                          ><span *ngIf="candidateForm?.errors?.mismatch"
+                            >Confirm password should be same to the
+                            password.</span
+                          ></ng-template
+                        >
+                      </span>
+                    </div>
+
+                    <div class="ac-info-tc">
+                      <div class="Checkbox__group">
+                        <input
+                          id="check"
+                          type="checkbox"
+                          class="form-control"
+                          name="agreeTerm"
+                          formControlName="agreeTerm"
+                        />
+                        <label for="check"
+                          >I agree with terms and conditions</label
+                        >
+                      </div>
+                    </div>
+
+                    <div class="action-btns-row persion-info-actionbtn">
+                      <button
+                        type="button"
+                        class="btn btn-default"
+                        (click)="alreadyHaveAccount()"
+                      >
+                        I ALREADY HAVE AN ACCOUNT
+                      </button>
+                      <button
+                        type="submit"
+                        class="btn btn-primary"
+                        [disabled]="
+                          !registerForm?.controls?.candidateForm?.valid
+                        "
+                      >
+                        SIGN UP NOW
                       </button>
                     </div>
                   </ng-container>
                 </ng-template>
                 <!--**************** candiddate registration end **************** -->
               </form>
+            </div>
+            <div class="terms-privacy-text">
+              <a href="#" title="Terms of use. Privacy Policy"
+                >Terms of use. Privacy Policy</a
+              >
             </div>
           </div>
         </div>

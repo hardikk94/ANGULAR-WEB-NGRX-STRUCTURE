@@ -3,7 +3,7 @@ import { RegisterActionTypes, RegisterAction } from './register.action'
 
 export const RegisterInitalState: RegisterState = {
     data: null,
-    status: null
+    success: null
 }
 export function RegisterReducer(state = RegisterInitalState, action: RegisterAction): RegisterState {
     switch (action.type) {
@@ -14,8 +14,8 @@ export function RegisterReducer(state = RegisterInitalState, action: RegisterAct
             return Object.assign({}, state, action.payload)
 
         case RegisterActionTypes.REGISTER_RESET:
-            return Object.assign({}, state, RegisterInitalState)
-        default:
             return RegisterInitalState
+        default:
+            return state
     }
 }

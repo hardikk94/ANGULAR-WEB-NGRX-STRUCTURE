@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { ShareModule } from './../../shared/shared.module'
+import { SharedModule } from './../../shared/shared.module'
 import { RegisterRoutingModule } from './register-routing.module'
 import { RegisterComponent } from './components/register.component';
 
@@ -17,7 +17,7 @@ import { RegisterService } from './store/register.service';
     RegisterComponent
   ],
   imports: [
-    ShareModule,
+    SharedModule,
     RegisterRoutingModule,
     EffectsModule.forFeature([RegisterEffects]),
     StoreModule.forFeature('registerInfo', RegisterReducer)

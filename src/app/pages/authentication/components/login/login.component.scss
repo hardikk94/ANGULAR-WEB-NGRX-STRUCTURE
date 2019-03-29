@@ -20,15 +20,14 @@
     justify-content: center;
     align-items: center;
     .logo-image {
-      height: 152px;
+      height: 125px;
       display: flex;
       align-items: center;
       justify-content: center;
       background: #fff;
       overflow: hidden;
-      .image-previewer {
-        height: 300px;
-      }
+      width: 100%;
+      text-align: center;
     }
     .info-title {
       font-size: 14px;
@@ -43,7 +42,7 @@
       form {
         .form-group {
           margin: 0;
-          padding-bottom: 24px;
+          padding-bottom: 20px;
         }
         .rem-forgt-linksblock {
           display: flex;
@@ -79,12 +78,8 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      position: absolute;
-      bottom: 0;
-      left: auto;
-      right: auto;
-      top: auto;
       width: 100%;
+      padding: 20px 0;
       a {
         font-size: 12px;
         line-height: 14px;
@@ -100,6 +95,28 @@
 //child component #image-compoenent//
 :host ::ng-deep.leftside .image-previewer {
   height: 100vh;
+}
+
+:host ::ng-deep.logo-image .image-previewer img {
+  width: 80% !important;
+}
+
+@media (max-width: 960px) {
+  .login-page-wrapper {
+    .rightside {
+      .login-form-wrapper {
+        .login-form {
+          .action-btns-row {
+            flex-direction: column;
+            .btn {
+              margin: 0 0 15px;
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
 @media (max-width: 767px) {
@@ -132,6 +149,6 @@
   }
 
   :host ::ng-deep.leftside .image-previewer {
-    height: auto;
+    height: 270px;
   }
 }

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Store } from "@ngrx/store";
 import { RegisterRequestedAction, RegisterReset } from './register.action'
 import { FeatureState } from './register.state'
+import { LoadingShowRequested } from 'src/app/store/actions/loading.action';
 
 @Injectable()
 export class RegisterStoreService {
@@ -20,5 +21,10 @@ export class RegisterStoreService {
 
     public dispatchResetRegister() {
         this.store.dispatch(new RegisterReset())
+    }
+
+    public dispatchLoader(loader)
+    {
+        this.store.dispatch(new LoadingShowRequested(loader))
     }
 }

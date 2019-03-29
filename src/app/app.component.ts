@@ -27,7 +27,7 @@ export class AppComponent implements OnInit, OnDestroy {
 
   public ngOnInit() {
     // toast show and clear state
-    this.toastSubscription = this.store.select('toastInfo').subscribe((toast: ToastState) => {
+    this.toastSubscription = this.store.select('toastInfo').subscribe((toast: ToastState) => {      
       if (toast.isToast) {
         this.toastService.showToastMessage(toast.type, toast.title, toast.message)
       }
