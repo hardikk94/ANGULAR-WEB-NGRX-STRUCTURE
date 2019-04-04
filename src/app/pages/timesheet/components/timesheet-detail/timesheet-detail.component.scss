@@ -1,0 +1,27 @@
+.editbymodal{
+    height: 80vh;
+    background-color: grey;
+}
+.sub-header{
+    color: #4e555b;
+}
+button.calendar, button.calendar:active {
+    width: 2.75rem;
+    background-image: url("../../../../../assets/images/calender.png") !important;
+    background-repeat: no-repeat;
+    background-size: 23px;
+    background-position: center;
+}
+.input-group{
+    width: 25%;
+}
+input{
+    outline: 0;
+    border-width: 0 0 2px;
+}
+.modal-footer{
+    justify-content: center
+}
+.timesheetbtn{
+    width:20%;
+}

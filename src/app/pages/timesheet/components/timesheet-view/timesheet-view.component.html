@@ -1,0 +1,184 @@
+<app-timesheet-header></app-timesheet-header>
+<div class="dashboard-quickdetail-box">
+  <div>
+    <span class="sub-header">GENERAL INFORMATION</span>
+    <div class="header-wrapper">
+      <div class="first-div">
+        <div class="form-group">
+          <div class="full-name">
+            <div class="nameblock ">
+              <div class="col-md-12">
+                <label class="col-md-6">Client/Booking</label>
+                <input type="text" class="col-md-6" id="clientname" placeholder="Client Name" name="clientname" readonly/>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="second-div">
+          <div class="form-group">
+              <div class="full-name">
+                <div class="nameblock ">
+                  <div class="col-md-12">
+                    <label class="col-md-6">Event/Timesheet Name</label>
+                    <input type="text" class="col-md-6" id="event_name" placeholder="Enter Name" name="eventname" readonly/>
+                  </div>
+                </div>
+              </div>
+            </div>
+      </div>
+    </div>
+    <div class="header-wrapper">
+        <div class="first-div">
+            <div class="form-group">
+                <div class="full-name">
+                  <div class="nameblock ">
+                    <div class="col-md-12">
+                      <label class="col-md-6">Work type</label>
+                      <input type="text" class="col-md-6" id="first_name" placeholder="work type" name="worktype" readonly/>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+          <div class="second-div">
+              <div class="form-group">
+                  <div class="full-name">
+                    <div class="nameblock ">
+                      <div class="col-md-12">
+                        <label class="col-md-6">Work/Event Address</label>
+                        <input type="text" class="col-md-6" id="event_address" placeholder="Enter address" name="eventaddress" readonly/>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+          </div>
+    </div>
+    <div class="header-wrapper">
+        <div class="first-div">
+            <div class="form-group">
+                <div class="full-name">
+                  <div class="nameblock ">
+                    <div class="col-md-12">
+                      <label class="col-md-6">Report to</label>
+                      <input type="text" class="col-md-6" id="first_name" placeholder="Report to" name="reportto" readonly/>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+    </div>
+    <div class="header-wrapper">
+        <div class="first-div">
+            <div class="form-group">
+                <div class="full-name">
+                  <div class="nameblock ">
+                    <div class="col-md-12">
+                      <label class="col-md-6">Description/Notes</label>
+                      <textarea class="col-md-6" id="description" placeholder="Enter text" name="description" readonly></textarea>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+    </div>
+  </div>
+
+  <div>
+      <span class="sub-header">SCHEDULE & HOURS</span>
+      <table>
+          <tbody>
+              <tr>
+                  <td>
+                      <label>Select Start and End date</label>
+                  </td>
+                  <td></td>
+                  <td>
+                      <label>Number of days</label>
+                  </td>
+                  <td>
+                      <label>Shift per staff type</label>
+                  </td>
+                  <td>
+                      <label>Set time slots</label>
+                  </td>
+                  <td></td>
+                  <td>
+                      <label>Break time</label>
+                  </td>
+              </tr>
+              <tr>
+                  <td>
+                      <div class="form-group">
+                          <div class="input-group">
+                              <input class="form-control" placeholder="" name="stdate" [(ngModel)]="startDate"
+                                  ngbDatepicker #d="ngbDatepicker" [ngModelOptions]="{standalone: true}">
+                              <div class="input-group-append">
+                                  <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
+                              </div>
+                          </div>
+                      </div>
+                  </td>
+                  <td>
+                      <div class="form-group">
+                          <div class="input-group">
+                              <input class="form-control" placeholder="" name="enddate" [(ngModel)]="endDate"
+                                  ngbDatepicker #d="ngbDatepicker" [ngModelOptions]="{standalone: true}">
+                              <div class="input-group-append">
+                                  <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
+                              </div>
+                          </div>
+                      </div>
+                  </td>
+                  <td>
+                      <input type="text">
+                      <p>DAYS</p>
+                  </td>
+                  <td>
+                      <input type="text">
+                      <p>SHIFT</p>
+                  </td>
+                  <td>
+                      <select>
+                          <option>00</option>
+                      </select>
+                      <p>HRS</p>
+                  </td>
+                  <td>
+                      <select>
+                          <option>00</option>
+                      </select>
+                      <p>MINS</p>
+                  </td>
+                  <td>
+                      <input type="text">
+                      <p>MINS</p>
+                  </td>
+              </tr>
+          </tbody>
+      </table>
+  </div>
+
+  <div>
+      <span class="sub-header">Select Start & End time</span>
+      <div>
+        <label class="selectdate">Saturday,15 Sep</label>
+        <label style="background-color: whitesmoke;margin: 0 10px 0 0;padding: 3px;">16:</label>
+        <label style="background-color: whitesmoke;margin: 0 10px 0 0;padding: 3px;">00:</label>
+        <label style="background-color: whitesmoke;margin: 0 10px 0 0;padding: 3px;">PM</label>
+        <label style="background-color: whitesmoke;margin: 0 10px 0 0;padding: 3px;">-</label>
+        <label style="background-color: whitesmoke;margin: 0 10px 0 0;padding: 3px;">00</label>
+        <label style="background-color: whitesmoke;margin: 0 10px 0 0;padding: 3px;">:</label>
+        <label style="background-color: whitesmoke;margin: 0 10px 0 0;padding: 3px;">00</label>
+        <label style="background-color: whitesmoke;margin: 0 10px 0 0;padding: 3px;">AM</label>
+      </div>
+  </div>
+  <div>
+      <span class="sub-header">Staff roles required</span>
+      <div>
+        <label class="selectdate" style="margin: 0 10px 0 0">Waiter/Waitress  5</label>
+        <label class="selectdate" style="margin: 0 10px 0 0">Bar staff 2</label>
+        <label class="selectdate" style="margin: 0 10px 0 0">Host/Hostess  1</label>
+      </div>
+  </div>
+</div>

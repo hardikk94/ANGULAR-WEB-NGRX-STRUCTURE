@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="15px" height="18px" viewBox="0 0 15 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+    <title>ico_notification</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="StaffApi-4-Client-Dashboard" transform="translate(-1716.000000, -49.000000)" fill="#617387" fill-rule="nonzero">
+            <g id="ico_notification" transform="translate(1716.000000, 49.000000)">
+                <path d="M7.5,18 C8.53390351,18 9.37135965,17.1738606 9.37135965,16.1538317 L5.62868421,16.1538317 C5.62864035,17.1738606 6.46609649,18 7.5,18 Z" id="Path"></path>
+                <path d="M13.1140351,12.4615385 L13.1140351,7.84613942 C13.1140351,5.00767788 11.5842105,2.63998558 8.90350877,2.01227885 L8.90350877,1.38461538 C8.90350877,0.618447115 8.27662281,0 7.5,0 C6.72337719,0 6.09649123,0.618447115 6.09649123,1.38461538 L6.09649123,2.01232212 C3.41578947,2.64002885 1.88596491,5.00772115 1.88596491,7.84618269 L1.88596491,12.4615385 L0.0146052632,14.3077067 L0.0146052632,15.2307692 L14.9853509,15.2307692 L14.9853509,14.3077067 L13.1140351,12.4615385 Z" id="Path"></path>
+            </g>
+        </g>
+    </g>
+</svg>

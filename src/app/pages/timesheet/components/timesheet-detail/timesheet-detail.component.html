@@ -1,0 +1,218 @@
+<app-modal [modalTitle]="title">
+
+    <form [formGroup]="createtimesheetForm">
+        <!-- start general information -->
+        <div>
+            <span class="sub-header">GENERAL INFORMATION</span>
+            <!-- <ng-container> -->
+            <div class="form-group">
+                <div class="full-name">
+                    <div class="nameblock ">
+                        <div class="col-md-12">
+                            <label class="col-md-6">Client/Booking</label>
+                            <input type="text" class="col-md-6" id="clientname" placeholder="Client Name"
+                                formControlName="clientname" name="clientname" />
+                                <span class="form-field-error"  *ngIf="
+                                (createtimesheetForm.get('clientname').dirty ||
+                                createtimesheetForm.get('clientname').touched) &&
+                                !createtimesheetForm.get('clientname').valid">
+                                        Client name is required.
+                                      </span>
+                        </div>
+                      
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="full-name">
+                    <div class="nameblock ">
+                        <div class="col-md-12">
+                            <label class="col-md-6">Work tye</label>
+                            <select formControlName="worktype" name="worktype">
+                                <option>event planning</option>
+                            </select>
+                        </div>
+                        <span class="form-field-error" *ngIf="
+                        (createtimesheetForm.get('worktype').dirty ||
+                        createtimesheetForm.get('worktype').touched) &&
+                        !createtimesheetForm.get('worktype').valid">
+                        work type is required.
+                      </span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="full-name">
+                    <div class="nameblock ">
+                        <div class="col-md-12">
+                            <label class="col-md-6">Report to</label>
+                            <input type="text" class="col-md-6" id="first_name" placeholder="Report to"
+                                formControlName="reportto" name="reportto" />
+                        </div>
+                        <span class="form-field-error" *ngIf="
+                        (createtimesheetForm.get('reportto').dirty ||
+                        createtimesheetForm.get('reportto').touched) &&
+                        !createtimesheetForm.get('reportto').valid">
+                            report to is required.
+                          </span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+            <div class="full-name">
+                <div class="nameblock ">
+                    <div class="col-md-12">
+                        <label class="col-md-6">Event/Timesheet Name</label>
+                        <input type="text" class="col-md-6" id="event_name" placeholder="Enter Name" formControlName="eventname"
+                            name="eventname" />
+                    </div>
+                    <span class="form-field-error" *ngIf="
+                    (createtimesheetForm.get('eventname').dirty ||
+                    createtimesheetForm.get('eventname').touched) &&
+                    !createtimesheetForm.get('eventname').valid">
+                    eventname is required.
+                      </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="full-name">
+                <div class="nameblock ">
+                    <div class="col-md-12">
+                        <label class="col-md-6">Work/Event Address</label>
+                        <input type="text" class="col-md-6" id="event_address" placeholder="Enter address" formControlName="eventaddress"
+                            name="eventaddress" />
+                    </div>
+                    <span class="form-field-error" *ngIf="
+                    (createtimesheetForm.get('eventaddress').dirty ||
+                    createtimesheetForm.get('eventaddress').touched) &&
+                    !createtimesheetForm.get('eventaddress').valid">
+                    eventaddress is required.
+                      </span>
+                </div>
+            </div>
+        </div>
+            <div class="form-group">
+                <div class="full-name">
+                    <div class="nameblock ">
+                        <div class="col-md-12">
+                            <label class="col-md-6">Description/Notes</label>
+                            <textarea class="col-md-6" id="description" placeholder="Enter text" formControlName="description"
+                                name="description"></textarea>
+                        </div>
+                        <span class="form-field-error" *ngIf="
+                        (createtimesheetForm.get('description').dirty ||
+                        createtimesheetForm.get('description').touched) &&
+                        !createtimesheetForm.get('description').valid">
+                            Description is required.
+                          </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end general information -->
+
+        <!-- ********start schedule********* -->
+        <div>
+            <span class="sub-header">SCHEDULE & HOURS</span>
+            <table>
+                <tbody>
+                    <tr>
+                        <td>
+                            <label>Select Start and End date</label>
+                        </td>
+                        <td></td>
+                        <td>
+                            <label>Number of days</label>
+                        </td>
+                        <td>
+                            <label>Shift per staff type</label>
+                        </td>
+                        <td>
+                            <label>Set time slots</label>
+                        </td>
+                        <td></td>
+                        <td>
+                            <label>Break time</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <input class="form-control" placeholder="" name="stdate" [(ngModel)]="startDate"
+                                        ngbDatepicker #d="ngbDatepicker" [ngModelOptions]="{standalone: true}">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <input class="form-control" placeholder="" name="enddate" [(ngModel)]="endDate"
+                                        ngbDatepicker #d="ngbDatepicker" [ngModelOptions]="{standalone: true}">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <input type="text">
+                            <p>DAYS</p>
+                        </td>
+                        <td>
+                            <input type="text">
+                            <p>SHIFT</p>
+                        </td>
+                        <td>
+                            <select>
+                                <option>00</option>
+                            </select>
+                            <p>HRS</p>
+                        </td>
+                        <td>
+                            <select>
+                                <option>00</option>
+                            </select>
+                            <p>MINS</p>
+                        </td>
+                        <td>
+                            <input type="text">
+                            <p>MINS</p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- ********end schedule******** -->
+
+        <!-- *******start staff roles required******** -->
+        <div>
+            <div>
+                <p>STAFF/ROLES REQUIRED PER SHIFT</p>
+                <span>Start typing or simply select the roles you require from the drop-down list.Once the roles are
+                    added you can edit the amount of staff members you need for each role.</span>
+            </div><br/>
+            <div>
+                <select>
+                    <option>Select role/occupation</option>
+                </select>
+            </div>
+            <div></div><br/>
+            <div>
+                <span>Total:2</span>
+            </div>
+        </div>
+        <!-- *******end staff roles required******** -->
+    </form>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary timesheetbtn" (click)="activeModal.close('Close click')">Cancel</button>
+        <button type="button" class="btn btn-primary timesheetbtn" (click)="activeModal.close('Close click')">Save Timesheet</button>
+        <button type="submit" class="btn btn-primary timesheetbtn">Submit</button>
+    </div>
+
+</app-modal>

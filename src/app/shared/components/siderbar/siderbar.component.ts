@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SessionStorageService } from './../../../core/providers/session-storage.service'
-import { Router } from '@angular/router'
+import { AuthStoreService } from 'src/app/store/stores/auth.store';
 
 @Component({
   selector: 'app-siderbar',
@@ -8,17 +7,19 @@ import { Router } from '@angular/router'
   styleUrls: ['./siderbar.component.scss']
 })
 export class SiderbarComponent implements OnInit {
-
+  public isMenuOpened: boolean = false
   constructor(
-    public sessionStorage: SessionStorageService,
-    public router: Router
+    public authStoreService: AuthStoreService
   ) { }
 
   ngOnInit() {
   }
 
   public logOut() {
-    this.sessionStorage.removeItem("authtoken");
-    this.router.navigate['auth']
+    this.authStoreService.dispatchLogoutAction();
+  }
+
+  public toggleMenu(isToggleOpend) {
+    this.isMenuOpened = !isToggleOpend
   }
 }

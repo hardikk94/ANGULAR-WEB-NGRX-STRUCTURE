@@ -1,0 +1,157 @@
+.dashboard-quickdetail-box {
+  background: white;
+  height: auto;
+  overflow: hidden;
+  box-shadow: 0px 0px 2px 0 rgba(29, 29, 29, 0.1);
+  width: 100%;
+  padding: 20px;
+  .quickdetail-box-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 0 25px;
+    .heading {
+      color: #222222;
+      margin: 0;
+      font-size: 16px;
+      line-height: 18px;
+      text-transform: uppercase;
+    }
+    .box-header-rightside {
+      display: flex;
+      align-items: center;
+    }
+    .searchbar {
+      padding-right: 10px;
+      .searchicon {
+        background: url("../../../../../assets/images/ico_search-green.svg")
+          no-repeat left center;
+        background-size: auto;
+        background-size: 20px;
+        height: 20px;
+        width: 20px;
+        display: inline-block;
+        cursor: pointer;
+        margin: 0;
+      }
+    }
+    .nav-tabs {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      border: none;
+      li {
+        display: flex;
+        justify-content: center;
+        margin: 0 12px;
+        &.active {
+          border-bottom: 3px solid #88ae75;
+          padding: 0 10px;
+          a {
+            color: #222;
+          }
+        }
+        a {
+          color: #aaa;
+          text-transform: capitalize;
+          font-size: 16px;
+          line-height: 18px;
+          padding: 10px 0;
+          &:hover {
+            color: #222;
+          }
+        }
+      }
+    }
+  }
+
+  .quickdetailtable-box {
+    padding-bottom: 20px;
+  }
+  .quickdetailtable-contant {
+    overflow: hidden;
+    .quickdetailtable-row {
+      &.topbar {
+        padding: 14px;
+        background: #eee;
+        border: none;
+        color: #aaa;
+      }
+    }
+
+    .quickdetailtable-row {
+      display: flex;
+      padding: 25px 14px;
+      border-bottom: 1px solid #f5f5f5;
+      align-items: center;
+      position: relative;
+
+      .quickdetailtable-column {
+        flex: 0 0 25%;
+        letter-spacing: 0.3px;
+        font-size: 15px;
+        line-height: 17px;
+        color: #333;
+        cursor: default;
+        display: flex;
+        align-items: center;
+        .boxview {
+          background: #617387;
+          border-radius: 5px;
+          height: 40px;
+          width: 40px;
+          overflow: hidden;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          flex: 0 0 40px;
+          margin-right: 12px;
+          img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+          }
+        }
+        .staff-count {
+          background: #e6eee1;
+          padding: 6px 24px;
+          letter-spacing: 0.1px;
+          font-size: 14px;
+          line-height: 16px;
+          color: #333;
+          text-align: center;
+          border-radius: 5px;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+  .action-btns-row {
+    display: flex;
+    max-width: 370px;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    .btn {
+      margin: 0 20px 0 0;
+      &:last-child {
+        margin: 0;
+      }
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .dashboard-quickdetail-box {
+    .quickdetailtable-contant {
+      max-width: 1024px;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .dashboard-count-cardbox {
+    padding: 16px 24px 16px 19px;
+  }
+}

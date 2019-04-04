@@ -1,0 +1,91 @@
+.Dashboard-main-contant-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  .main-contant-leftside {
+    flex: 1 1 auto;
+    padding-right: 30px;
+  }
+  .dashboard-count-summary-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 -15px 30px;
+    .dashboard-count-summary-column {
+      width: 100%;
+      margin: 0 15px;
+    }
+  }
+  .dashboard-placement-request-new-candi-row {
+    margin: 0 -15px 30px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    .dashboard-placement-request-column {
+      flex: 1 1 auto;
+      margin: 0 15px;
+    }
+    .dashboard-new-candidate-list-column {
+      flex: 0 0 30%;
+      margin: 0 15px;
+    }
+  }
+  .main-contant-rightside {
+    flex: 0 0 23%;
+  }
+}
+
+@media (max-width: 1199px) {
+  .Dashboard-main-contant-row {
+    .dashboard-placement-request-new-candi-row {
+      width: 100%;
+      .dashboard-placement-request-column {
+        flex: 0 0 100%;
+        margin-bottom: 20px;
+      }
+      .dashboard-new-candidate-list-column {
+        flex: 0 0 100%;
+        margin-bottom: 20px;
+      }
+    }
+    .main-contant-rightside {
+      flex: 0 0 28%;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .Dashboard-main-contant-row {
+    flex-direction: column;
+    margin: 0;
+    .main-contant-leftside {
+      padding: 0;
+      flex: 0 0 100%;
+      width: 100%;
+    }
+    .main-contant-rightside {
+      flex: 0 0 100%;
+      width: 100%;
+    }
+    .dashboard-count-summary-row {
+      flex-direction: column;
+      margin: 0;
+      .dashboard-count-summary-column {
+        margin: 0 0 20px;
+      }
+    }
+    .dashboard-placement-request-new-candi-row {
+      flex-direction: column;
+      margin: 0;
+      .dashboard-placement-request-column {
+        margin: 0 0 20px;
+      }
+      .dashboard-new-candidate-list-column {
+        margin: 0 0 20px;
+      }
+    }
+    .dashboard-scheduler-calendar-row {
+      margin: 0 0 20px;
+    }
+  }
+}

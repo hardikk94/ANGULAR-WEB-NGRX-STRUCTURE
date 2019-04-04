@@ -1,14 +1,16 @@
-<div class="row">
-    <div class="col-12">
-        <app-header></app-header>
+<div class="home-layout-wrapper">
+  <div class="sidebar-wrapper">
+    <app-siderbar></app-siderbar>
+  </div>
+  <div class="content-wrapper">
+    <div class="header-wrapper">
+      <app-header></app-header>
     </div>
-
-</div>
-<div class="row">
-    <div class="col-3">
-        <app-siderbar></app-siderbar>
+    <div class="router-wrapper">
+      <router-outlet></router-outlet>
     </div>
-    <div class="col-9">
-        <router-outlet></router-outlet>
-    </div>
+    <!-- <div class="footer-wrapper">
+        <app-footer></app-footer>
+    </div> -->
+  </div>
 </div>

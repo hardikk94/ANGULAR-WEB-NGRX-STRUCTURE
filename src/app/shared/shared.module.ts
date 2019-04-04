@@ -8,7 +8,9 @@ import { FooterComponent } from './components/footer/footer.component';
 import { RouterModule } from '@angular/router'
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { ImageViewerComponent } from './components/image-viewer/image-viewer.component';
-import { LoaderComponent } from './components/loader/loader.component'
+import { LoaderComponent } from './components/loader/loader.component';
+import { ModalComponent } from './components/modal/modal.component';
+import { SchedulerComponent } from './components/scheduler/scheduler.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +21,8 @@ import { LoaderComponent } from './components/loader/loader.component'
     FooterComponent,
     ImageViewerComponent,
     LoaderComponent,
+    ModalComponent,
+    SchedulerComponent,
   ],
   imports: [
     CommonModule,
@@ -35,7 +39,9 @@ import { LoaderComponent } from './components/loader/loader.component'
     SiderbarComponent,
     NormallayoutComponent,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    ModalComponent,
+    SchedulerComponent
 
   ]
 })

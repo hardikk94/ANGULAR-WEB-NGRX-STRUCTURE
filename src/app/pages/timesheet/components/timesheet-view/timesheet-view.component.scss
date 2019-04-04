@@ -1,0 +1,34 @@
+.dashboard-quickdetail-box {
+    background: white;
+    height: auto;
+    overflow: hidden;
+    box-shadow: 0px 0px 2px 0 rgba(29, 29, 29, 0.1);
+    width: 70%;
+    padding: 20px;
+}
+input{
+    outline: 0;
+    border-width: 0 0 2px;
+}
+button.calendar, button.calendar:active {
+    width: 2.75rem;
+    background-image: url("../../../../../assets/images/calender.png") !important;
+    background-repeat: no-repeat;
+    background-size: 23px;
+    background-position: center;
+}
+.header-wrapper{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    .second-div{
+        display: flex;
+        justify-content: space-between;
+        // width: 246px;
+    }
+}
+.selectdate{
+    width: 200px;
+    background-color: #86B070;
+    text-align: center;
+}

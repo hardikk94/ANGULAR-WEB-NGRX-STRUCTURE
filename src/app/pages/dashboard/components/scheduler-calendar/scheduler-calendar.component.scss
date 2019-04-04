@@ -1,0 +1,17 @@
+.dashboard-scheduler-box {
+  background: white;
+  height: auto;
+  overflow: hidden;
+  box-shadow: 0px 0px 2px 0 rgba(29, 29, 29, 0.1);
+  width: 100%;
+  padding: 20px;
+  .heading {
+    color: #222222;
+    margin: 0;
+    padding: 5px 0 25px;
+    font-size: 16px;
+    line-height: 18px;
+    border-bottom: 1px solid #eee;
+    text-transform: uppercase;
+  }
+}

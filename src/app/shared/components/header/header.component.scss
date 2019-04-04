@@ -1,6 +1,116 @@
 .navbar {
   padding: 0;
   margin: 0;
-  height: 52px;
+  height: 64px;
   background: #fff;
+  padding: 0 20px;
+  justify-content: space-between;
+  .searcharea {
+    display: flex;
+    align-items: center;
+    max-width: 280px;
+    width: 100%;
+    .searchicon {
+      background: url(../../../../assets/images/ico_search.svg) no-repeat left
+        center;
+      background-size: 16px;
+      width: 16px;
+      height: 16px;
+      display: inline-block;
+      margin: 0 12px 0 0;
+    }
+    input {
+      font-size: 14px;
+      line-height: 16px;
+      box-shadow: none;
+      border: none;
+      width: 100%;
+    }
+  }
+  .navbar-collapse {
+    &.navbar-collapse {
+      flex-grow: 0;
+    }
+  }
+  .header-rightside {
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      li {
+        padding: 0 12px;
+        align-items: center;
+        display: flex;
+        &:last-child {
+          padding: 0 0 0 20px;
+        }
+        .iconview {
+          width: 20px;
+          height: 20px;
+          display: inline-block;
+          &.help {
+            background: url(../../../../assets/images/ico_help.svg) no-repeat
+              left center;
+            background-size: 16px;
+          }
+          &.chats {
+            background: url(../../../../assets/images/ico_chat.svg) no-repeat
+              left center;
+            background-size: 20px;
+          }
+          &.noti {
+            background: url(../../../../assets/images/ico_notification.svg)
+              no-repeat left center;
+            background-size: 16px;
+          }
+        }
+        &.dropdown-profile {
+          border-left: 1px solid #cbcbcb;
+          .profile-column {
+            display: inline-block;
+            line-height: 40px;
+            .username {
+              font-size: 15px;
+              line-height: 17px;
+              color: #222;
+              text-decoration: none;
+              margin: 0;
+            }
+            .arrow {
+              background: url(../../../../assets/images/downarrow_green.svg)
+                no-repeat left center;
+              background-size: 10px;
+              width: 10px;
+              height: 10px;
+              display: inline-block;
+              margin: 0 10px;
+            }
+            .userpic {
+              background: #ccc;
+              border-radius: 5px;
+              height: 40px;
+              width: 40px;
+              display: inline-block;
+              img {
+                object-fit: cover;
+                height: 100%;
+                width: 100%;
+                border-radius: 5px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .navbar {
+    .searcharea {
+      max-width: 220px;
+    }
+  }
 }

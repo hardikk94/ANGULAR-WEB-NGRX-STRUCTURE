@@ -6,6 +6,8 @@
   display: flex;
   width: 100%;
   align-items: stretch;
+  background: #313840;
+  height: 100%;
 }
 
 .sidemenu {
@@ -13,6 +15,23 @@
   max-width: 225px;
   background: #313840;
   padding: 0;
+  flex: 0 0 225px;
+  &.sidemenu-iconview {
+    min-width: 60px;
+    max-width: 60px;
+    .sidebar-header {
+      .logo {
+        display: none;
+      }
+    }
+    .menuitem {
+      a {
+        span {
+          display: none;
+        }
+      }
+    }
+  }
 }
 
 .sidemenu.active {
@@ -22,11 +41,32 @@
 
 .sidemenu .sidebar-header {
   background: #617387;
-  height: 52px;
+  height: 64px;
   display: flex;
   align-items: center;
+  padding: 6px 20px;
+  justify-content: space-between;
   .logo {
     color: #fff;
+    width: 130px;
+    height: 58px;
+    background: #617387;
+    overflow: hidden;
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+  .iconmenu {
+    background: url(../../../../assets/images/ico_menu.svg) no-repeat right
+      center;
+    background-size: 16px;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    cursor: pointer;
+    text-decoration: none;
   }
 }
 
@@ -73,7 +113,7 @@
         color: #fff;
         background: transparent;
         .menu-icon {
-          transform: translateX(4px);          
+          transform: translateX(4px);
         }
       }
       span {
@@ -107,16 +147,6 @@ a[data-toggle="collapse"] {
   top: 50%;
   right: 20px;
   transform: translateY(-50%);
-}
-
-/* ---------------------------------------------------
-    CONTENT STYLE
------------------------------------------------------ */
-#content {
-  width: 100%;
-  padding: 20px;
-  min-height: 100vh;
-  transition: all 0.3s;
 }
 
 /* ---------------------------------------------------

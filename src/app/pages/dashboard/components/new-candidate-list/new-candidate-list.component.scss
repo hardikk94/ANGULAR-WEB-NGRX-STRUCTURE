@@ -1,0 +1,167 @@
+.dashboard-newcandidates-box {
+  background: white;
+  height: auto;
+  overflow: hidden;
+  box-shadow: 0px 0px 2px 0 rgba(29, 29, 29, 0.1);
+  width: 100%;
+  padding: 20px;
+  .heading {
+    color: #222222;
+    margin: 0;
+    padding: 5px 0 25px;
+    font-size: 16px;
+    line-height: 18px;
+    border-bottom: 1px solid #eee;
+    text-transform: uppercase;
+  }
+  .new-candidates-list-block {
+    padding-bottom: 20px;
+    .new-candidates-list-row {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px solid #eee;
+      padding: 10px 0;
+      flex-direction: column;
+      .timedate {
+        color: #989898;
+        margin: 0;
+        font-size: 12px;
+        line-height: 14px;
+        text-align: right;
+        padding-bottom: 8px;
+      }
+      .list-contant-row {
+        display: flex;
+        align-items: flex-start;
+        .candidate-info-leftside {
+          flex: 1 1 auto;
+          display: flex;
+          align-items: center;
+          .candidate-pic {
+            background: #ccc;
+            border-radius: 5px;
+            height: 75px;
+            width: 75px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+            }
+          }
+          .candidate-details {
+            padding-left: 18px;
+            .username {
+              color: #222;
+              margin: 0;
+              font-size: 15px;
+              line-height: 17px;
+              font-weight: normal;
+              text-transform: capitalize;
+              padding-bottom: 6px;
+              cursor: pointer;
+            }
+            .user-position {
+              color: #555;
+              margin: 0;
+              font-size: 13px;
+              line-height: 18px;
+              font-weight: normal;
+              text-transform: capitalize;
+              padding-bottom: 6px;
+            }
+            .user-jobtime {
+              color: #aaa;
+              margin: 0;
+              font-size: 13px;
+              line-height: 15px;
+              font-weight: normal;
+              padding-bottom: 6px;
+              text-transform: capitalize;
+            }
+            .user-exp {
+              color: #aaa;
+              margin: 0;
+              font-size: 13px;
+              line-height: 15px;
+              font-weight: normal;
+              text-transform: capitalize;
+            }
+          }
+        }
+        .more-dropdown-right {
+          display: flex;
+          padding-top: 7px;
+          align-items: flex-start;
+          position: relative;
+          .ico-more {
+            width: 16px;
+            height: 4px;
+            color: #88ae75;
+            cursor: pointer;
+            background: url(../../../../../assets/images/ico-more.svg) no-repeat
+              left center;
+            background-size: 16px;
+            display: inline-block;
+            cursor: pointer;
+            &.active {
+              background: url(../../../../../assets/images/ico-more-active.svg)
+                no-repeat left center;
+              background-size: 16px;
+            }
+          }
+          .dropdown-menu {
+            &.dropdown-more {
+              display: block;
+              background: #f1f1f3;
+              border: none;
+              float: none;
+              top: 15px;
+              right: 0;
+              left: auto;
+              border-radius: 0;
+              padding: 10px 0;
+              max-width: 180px;
+              text-align: center;
+              li {
+                padding: 8px 15px;
+                a {
+                  color: #222;
+                  font-size: 13px;
+                  line-height: 15px;
+                  &:hover {
+                    color: #000;
+                    font-weight: 600;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .action-btns-row {
+    display: flex;
+    align-items: center;
+    max-width: 370px;
+    justify-content: center;
+    margin: 0 auto;
+    .btn {
+      margin: 0 20px 0 0;
+      &:last-child {
+        margin: 0;
+      }
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .dashboard-count-cardbox {
+    padding: 16px 24px 16px 19px;
+  }
+}

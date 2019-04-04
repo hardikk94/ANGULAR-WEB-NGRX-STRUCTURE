@@ -1,0 +1,113 @@
+.dashboard-count-cardbox {
+  background: white;
+  height: auto;
+  display: flex;
+  align-items: center;
+  padding: 20px 44px 20px 24px;
+  justify-content: space-between;
+  overflow: hidden;
+  box-shadow: 0px 0px 2px 0 rgba(29, 29, 29, 0.1);
+  width: 100%;
+  .card-contant-left {
+    flex: 1 1 auto;
+    .card-title {
+      color: #989898;
+      margin: 0;
+      padding-bottom: 20px;
+      font-size: 16px;
+      line-height: 18px;
+      font-weight: normal;
+    }
+    h2 {
+      color: #222222;
+      margin: 0;
+      padding-bottom: 10px;
+      font-size: 30px;
+      line-height: 32px;
+    }
+    .card-outputtext-block {
+      cursor: pointer;
+      align-items: center;
+      display: flex;
+      .arrow {
+        background: url(../../../../../assets/images/ico_arrowup_green.png)
+          no-repeat left center;
+        background-size: 15px;
+        height: 15px;
+        width: 15px;
+        display: inline-block;
+      }
+      span {
+        color: #88ae75;
+        margin: 0;
+        font-size: 13px;
+        line-height: 15px;
+      }
+      &.output-down {
+        .arrow {
+          background: url(../../../../../assets/images/ico_arrowdown_red.png)
+            no-repeat left center;
+          background-size: 15px;
+        }
+        span {
+          color: #d15555;
+        }
+      }
+    }
+  }
+  .card-icon-right {
+    flex: 0 0 110px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .iconview {
+      background: transparent;
+      width: 110px;
+      height: 108px;
+      display: inline-block;
+      text-decoration: none;
+      &.ico-user {
+        background: url(../../../../../assets/images/ico-client.png) no-repeat
+          right center;
+        background-size: 76px;
+      }
+      &.ico-candidates {
+        background: url(../../../../../assets/images/ico-candidates.png)
+          no-repeat right center;
+        background-size: 103px;
+      }
+      &.ico-openjobs {
+        background: url(../../../../../assets/images/ico-openjobs.png) no-repeat
+          right center;
+        background-size: 108px;
+      }
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .dashboard-count-cardbox {
+    padding: 16px 24px 16px 19px;
+    .card-contant-left {
+      .card-title {
+        padding-bottom: 14px;
+      }
+    }
+    .card-icon-right {
+      flex: 0 0 60px;
+      .iconview {
+        height: 60px;
+        width: 60px;
+        &.ico-user {
+          background-size: 40px;
+        }
+        &.ico-candidates {
+          background-size: 55px;
+        }
+        &.ico-openjobs {
+          background-size: 60px;
+        }
+      }
+    }
+  }
+}

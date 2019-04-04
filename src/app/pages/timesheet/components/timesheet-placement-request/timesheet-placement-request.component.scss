@@ -1,0 +1,92 @@
+.dashboard-quickdetail-box {
+    background: white;
+    height: auto;
+    overflow: hidden;
+    box-shadow: 0px 0px 2px 0 rgba(29, 29, 29, 0.1);
+    width: 100%;
+    padding: 20px;
+    .heading {
+      color: #222222;
+      margin: 0;
+      padding: 5px 0 25px;
+      font-size: 16px;
+      line-height: 18px;
+      border-bottom: 1px solid #eee;
+      text-transform: uppercase;
+    }
+    .header-wrapper{
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        .nav-links{
+            display: flex;
+            justify-content: space-between;
+            width: 246px;
+        }
+        a{
+            padding: 0 10px 0 0;
+        }
+    }
+    .searcharea {
+        display: flex;
+        align-items: center;
+        max-width: 280px;
+        width: 100%;
+        .searchicon {
+          background: url(../../../../../assets/images/ico_search.svg) no-repeat left
+            center;
+          background-size: 16px;
+          width: 16px;
+          height: 16px;
+          display: inline-block;
+          margin: 0 12px 25px 0;
+          padding-right: 30px;
+        }
+        input {
+          font-size: 14px;
+          line-height: 16px;
+          box-shadow: none;
+          border: none;
+          width: 100%;
+        }
+      }
+    
+  
+    .quickdetailtable-contant {
+      overflow: hidden;
+      .quickdetailtable-row {
+        &.topbar {
+          padding: 14px;
+          background: #eee;
+          border: none;
+          color: #aaa;
+        }
+      }
+      .button-row{
+          justify-content: center;
+      }
+      .quickdetailtable-row {
+        display: flex;
+        padding: 25px 14px;
+        border-top: 1px solid #f5f5f5;
+        align-items: center;
+        position: relative;
+  
+        .quickdetailtable-column {
+          flex: 0 0 25%;
+          letter-spacing: 0.3px;
+          font-size: 15px;
+          line-height: 17px;
+          color: #333;
+          cursor: default;
+        }
+      }
+    }
+  }
+  
+  @media (max-width: 767px) {
+    .dashboard-count-cardbox {
+      padding: 16px 24px 16px 19px;
+    }
+  }
+  

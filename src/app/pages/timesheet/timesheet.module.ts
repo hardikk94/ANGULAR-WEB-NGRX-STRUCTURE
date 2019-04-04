@@ -1,14 +1,33 @@
 import { NgModule } from '@angular/core';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { TimesheetComponent } from './components/timesheet/timesheet.component'
 import { TimesheetRoutingModule } from './timesheet-routing.module';
+import { TimesheetListComponent } from './components/timesheet-list/timesheet-list.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { TimesheetEffects } from './store/timesheet.effects';
+import { EffectsModule } from '@ngrx/effects';
+import { TimesheetReducer } from './store/timesheet.reducer';
+import { StoreModule } from '@ngrx/store';
+
+import { TimesheetService } from './store/timesheet.service';
+import { TimesheetPlacementRequestComponent } from './components/timesheet-placement-request/timesheet-placement-request.component';
+import { TimesheetViewComponent } from './components/timesheet-view/timesheet-view.component';
+import { StaffScheduleComponent } from './components/staff-schedule/staff-schedule.component';
+import { TimesheetHeaderComponent } from './components/timesheet-header/timesheet-header.component';
+
 @NgModule({
   declarations: [
-    TimesheetComponent
+    TimesheetListComponent,
+    TimesheetPlacementRequestComponent,
+    TimesheetViewComponent,
+    StaffScheduleComponent,
+    TimesheetHeaderComponent
   ],
   imports: [
     SharedModule,
-    TimesheetRoutingModule
-  ]
+    TimesheetRoutingModule,
+    NgbModule,
+    EffectsModule.forFeature([TimesheetEffects]),
+    StoreModule.forFeature('timesheetInfo', TimesheetReducer)  ],
+  providers: [TimesheetService]
 })
 export class TimesheetModule { }

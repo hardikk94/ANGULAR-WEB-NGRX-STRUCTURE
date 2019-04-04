@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="10px" height="6px" viewBox="0 0 10 6" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+    <title>ico_downup</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="StaffApi-4-Client-Dashboard" transform="translate(-234.000000, -206.000000)" fill="#FFFFFF" fill-rule="nonzero">
+            <g id="ico_downup" transform="translate(239.000000, 209.000000) scale(1, -1) translate(-239.000000, -209.000000) translate(234.000000, 206.000000)">
+                <path d="M4.99829646,5.99316279 C4.81913717,5.99316279 4.64,5.92125581 4.50340708,5.77774419 L0.205088496,1.25946512 C-0.068340708,0.972046512 -0.068340708,0.506046512 0.205088496,0.218744186 C0.47840708,-0.0685581395 0.921637168,-0.0685581395 1.1950885,0.218744186 L4.99829646,4.21676744 L8.80152655,0.218883721 C9.07495575,-0.0684186047 9.51814159,-0.0684186047 9.79143805,0.218883721 C10.065,0.506186047 10.065,0.972186047 9.79143805,1.25960465 L5.49318584,5.77788372 C5.35652655,5.9214186 5.17738938,5.99316279 4.99829646,5.99316279 Z" id="Path"></path>
+            </g>
+        </g>
+    </g>
+</svg>

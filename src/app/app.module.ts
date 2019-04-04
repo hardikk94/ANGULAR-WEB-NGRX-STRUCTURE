@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
+import { NgbModule, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 // ngrx module
 import './core/providers/rxjs';
@@ -12,6 +13,8 @@ import { reducers } from './store/reducers/app.reducer'
 import { EffectsModule } from "@ngrx/effects";
 import { AuthEffects } from './store/effects/auth.effects'
 import { StoreRouterConnectingModule } from '@ngrx/router-store'
+
+
 
 @NgModule({
   declarations: [
@@ -26,9 +29,10 @@ import { StoreRouterConnectingModule } from '@ngrx/router-store'
     StoreDevtoolsModule.instrument({
       maxAge: 25,
     }),
+    NgbModule.forRoot(),
   ],
   exports: [],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [NgbActiveModal],
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

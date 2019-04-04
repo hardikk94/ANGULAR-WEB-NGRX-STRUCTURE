@@ -1,22 +1,29 @@
 <div class="wrapper">
-  <nav id="sidebar" class="sidemenu">
-    <div class="sidebar-header">
-      <div class="logo">Logo</div>
+  <nav id="sidebar" class="sidemenu" [ngClass]="{'sidemenu-iconview':!isMenuOpened}">
+    <div class="sidebar-header" (click)="toggleMenu(isMenuOpened)">
+      <div class="logo">
+        <img class="logoimg" src="../../../../assets/images/logo.png" alt="logo" />
+      </div>
+      <a class="iconmenu"></a>
     </div>
 
     <ul class="menulists">
       <li class="menuitem" routerLinkActive="active" #homerla="routerLinkActive">
         <a [routerLink]="['/home']" title="HOME">
-          <img class="menu-icon"
-            src="{{homerla.isActive ? 'assets/images/ico_dashboard-active.svg' : 'assets/images/ico_dashboard.svg'}}"
-            alt="Dashboard" />
+          <img class="menu-icon" src="{{
+              homerla.isActive
+                ? 'assets/images/ico_dashboard-active.svg'
+                : 'assets/images/ico_dashboard.svg'
+            }}" alt="Dashboard" />
           <span>HOME</span></a>
       </li>
       <li class="menuitem" routerLinkActive="active" #timesheetrla="routerLinkActive">
         <a [routerLink]="['/timesheets']" title="TIMESHEETS">
-          <img class="menu-icon"
-            src="{{timesheetrla.isActive ? 'assets/images/ico_dashboard-active.svg' : 'assets/images/ico_dashboard.svg'}}"
-            alt="Inbox" />
+          <img class="menu-icon" src="{{
+              timesheetrla.isActive
+                ? 'assets/images/ico_dashboard-active.svg'
+                : 'assets/images/ico_dashboard.svg'
+            }}" alt="Inbox" />
           <span>TIMESHEETS</span>
         </a>
       </li>
@@ -63,48 +70,54 @@
 
       <li class="menuitem" routerLinkActive="active" #calendarrla="routerLinkActive">
         <a [routerLink]="['/calendar']" title="CALENDAR">
-          <img class="menu-icon"
-            src="{{calendarrla.isActive ? 'assets/images/ico_dashboard-active.svg' : 'assets/images/ico_dashboard.svg'}}"
-            alt="Calendar" />
+          <img class="menu-icon" src="{{
+              calendarrla.isActive
+                ? 'assets/images/ico_dashboard-active.svg'
+                : 'assets/images/ico_dashboard.svg'
+            }}" alt="Calendar" />
           <span>CALENDAR</span>
         </a>
       </li>
 
       <li class="menuitem" routerLinkActive="active" #invoicerla="routerLinkActive">
         <a [routerLink]="['/invoices']" title="INVOICES">
-          <img class="menu-icon"
-            src="{{invoicerla.isActive ? 'assets/images/ico_dashboard-active.svg' : 'assets/images/ico_dashboard.svg'}}"
-            alt="Candidates" />
+          <img class="menu-icon" src="{{
+              invoicerla.isActive
+                ? 'assets/images/ico_dashboard-active.svg'
+                : 'assets/images/ico_dashboard.svg'
+            }}" alt="Candidates" />
           <span>INVOICES</span>
         </a>
       </li>
 
       <li class="menuitem" routerLinkActive="active" #profilerla="routerLinkActive">
         <a [routerLink]="['/company-profile']" title="COMPANY PROFILE">
-          <img class="menu-icon"
-            src="{{profilerla.isActive ? 'assets/images/ico_dashboard-active.svg' : 'assets/images/ico_dashboard.svg'}}"
-            alt="Clients" />
+          <img class="menu-icon" src="{{
+              profilerla.isActive
+                ? 'assets/images/ico_dashboard-active.svg'
+                : 'assets/images/ico_dashboard.svg'
+            }}" alt="Clients" />
           <span>COMPANY PROFILE</span>
         </a>
       </li>
 
       <li class="menuitem" routerLinkActive="active" #helprla="routerLinkActive">
         <a [routerLink]="['/help']" title="HELP">
-          <img class="menu-icon"
-            src="{{helprla.isActive ? 'assets/images/ico_dashboard-active.svg' : 'assets/images/ico_dashboard.svg'}}"
-            alt="Invoices" />
+          <img class="menu-icon" src="{{
+              helprla.isActive
+                ? 'assets/images/ico_dashboard-active.svg'
+                : 'assets/images/ico_dashboard.svg'
+            }}" alt="Invoices" />
           <span>HELP</span>
         </a>
       </li>
 
       <li class="menuitem">
-        <a href="javascript;;" title="LOGOUT" (click)="logOut()">
+        <a href="" title="LOGOUT" (click)="logOut()">
           <img class="menu-icon" src="assets/images/ico_dashboard.svg" alt="Setting" />
           <span>LOGOUT</span>
         </a>
       </li>
     </ul>
   </nav>
-  <div id="content">
-  </div>
 </div>

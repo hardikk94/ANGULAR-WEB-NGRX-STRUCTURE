@@ -31,11 +31,11 @@ const routes: Routes = [
   {
     path: 'timesheets',
     loadChildren: './pages/timesheet/timesheet.module#TimesheetModule',
-    canActivate: [AuthGuardService]
+    canActivate: [AuthGuardService],
   },
   {
     path: 'calendar',
-    loadChildren: './pages/calendar/calendar.module#CalendarModule',
+    loadChildren: './pages/calendar/calendar.module#CalendarPageModule',
     canActivate: [AuthGuardService]
   },
   {
@@ -68,4 +68,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes, { useHash: true })],
   exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

@@ -16,30 +16,41 @@ import { AuthGuardService } from './providers/auth.guard.service'
 import { AuthService } from './../store/providers/auth.service'
 import { AuthStoreService } from './../store/stores/auth.store'
 import { NgxSpinnerModule } from 'ngx-spinner';
-import { LoaderService } from './providers/loader.service'
+import { LoaderService } from './providers/loader.service';
+import { ModalService } from './providers/modal.service';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
+// declare all imperative component here
+import { TimesheetDetailComponent } from '../pages/timesheet/components/timesheet-detail/timesheet-detail.component';
+import { TimesheetStoreService } from '../pages/timesheet/store/timesheet.store';
 
 @NgModule({
     declarations: [
         ToastComponent,
-        PageNotFound404Component
+        PageNotFound404Component,
+        TimesheetDetailComponent
     ],
     imports: [
         CommonModule,
         BrowserAnimationsModule,
-        HttpClientModule,        
+        HttpClientModule,
         ToastrModule.forRoot({
             toastComponent: ToastComponent,
         }),
+        AppRoutingModule,
         SharedModule,
-        AppRoutingModule,                        
-        NgxSpinnerModule
+        NgxSpinnerModule,
+        NgbModule.forRoot()
     ],
     exports: [
         ToastComponent,
         AppRoutingModule,
-        NgxSpinnerModule,        
+        NgxSpinnerModule,
+        TimesheetDetailComponent,
+        SharedModule,
+
     ],
-    entryComponents: [ToastComponent],
+    entryComponents: [ToastComponent, TimesheetDetailComponent],
     providers: [
         CommonService,
         ToastService,
@@ -50,7 +61,9 @@ import { LoaderService } from './providers/loader.service'
         AuthGuardService,
         AuthStoreService,
         AuthService,
-        LoaderService
+        LoaderService,
+        ModalService,
+        TimesheetStoreService
     ],
 })
 export class CoreModule {

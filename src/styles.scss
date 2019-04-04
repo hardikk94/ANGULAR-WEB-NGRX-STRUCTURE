@@ -1,14 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.min.css";
 @import "~ngx-toastr/toastr.css";
+@import "~angular-calendar/css/angular-calendar.css";
+@import "~bryntum-scheduler/scheduler.material.css";
 @import "themes/theme";
 
 body {
-  font-family: "Poppins", sans-serif;
+  // font-family: "Poppins", sans-serif;
   background: #fafafa;
+  letter-spacing: 0.5px;
 }
 
 p {
-  font-family: "Poppins", sans-serif;
+  // font-family: "Poppins", sans-serif;
   font-size: 1.1em;
   font-weight: 300;
   line-height: 1.7em;
@@ -184,8 +188,8 @@ input.ng-invalid.ng-dirty {
   [type="checkbox"]:not(:checked) + label:after {
     content: "";
     width: 18px;
-    height: 18px;    
-    background:url("#{$rootImagePath}ico-check.svg") no-repeat center center;
+    height: 18px;
+    background: url("#{$rootImagePath}ico-check.svg") no-repeat center center;
     background-size: 10px;
     position: absolute;
     top: 0px;
@@ -206,29 +210,31 @@ input.ng-invalid.ng-dirty {
   }
 }
 
+.tab-content > .active {
+  opacity: 1;
+}
+
 // toaster design customization
 
-.toast-container .ngx-toastr{
+.toast-container .ngx-toastr {
   padding: 0px 0px 5px 50px;
 }
-.upper-row{
-  display: flex;  
-  .upper-title{
+.upper-row {
+  display: flex;
+  .upper-title {
     flex: 1;
     padding-top: 7px;
   }
 }
-.down-row{
-  display:flex;
-  margin-top:-15px;
+.down-row {
+  display: flex;
+  margin-top: -15px;
 }
 
-.toast-title{
-  white-space: normal
+.toast-title {
+  white-space: normal;
 }
 
-.toast-message{
-  white-space: normal
-} 
-
-
+.toast-message {
+  white-space: normal;
+}
