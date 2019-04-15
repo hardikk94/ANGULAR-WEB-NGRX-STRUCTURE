@@ -1,0 +1,58 @@
+.staff-scheduler-wrapper{
+  height: 100vh;
+  width: 100%;
+}
+
+.dashboard-quickdetail-box {
+  background: white;
+  height: auto;
+  overflow: hidden;
+  box-shadow: 0px 0px 2px 0 rgba(29, 29, 29, 0.1);
+  width: 100%;
+  padding: 20px;
+  .heading {
+    color: #222222;
+    margin: 0;
+    padding: 5px 0 25px;
+    font-size: 16px;
+    line-height: 18px;
+    border-bottom: 1px solid #eee;
+    text-transform: uppercase;
+  }
+  .header-wrapper{
+      display: flex;
+      justify-content: space-between;
+      flex-direction: row;
+      .nav-links{
+          display: flex;
+          justify-content: space-between;
+          width: 246px;
+      }
+      a{
+          padding: 0 10px 0 0;
+      }
+  }
+  .searcharea {
+      display: flex;
+      align-items: center;
+      max-width: 280px;
+      width: 100%;
+      .searchicon {
+        background: url(../../../../../assets/images/ico_search.svg) no-repeat left
+          center;
+        background-size: 16px;
+        width: 16px;
+        height: 16px;
+        display: inline-block;
+        margin: 0 12px 25px 0;
+        padding-right: 30px;
+      }
+      input {
+        font-size: 14px;
+        line-height: 16px;
+        box-shadow: none;
+        border: none;
+        width: 100%;
+      }
+    }
+  }

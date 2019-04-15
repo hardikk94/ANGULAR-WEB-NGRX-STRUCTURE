@@ -1,0 +1,183 @@
+.timesheet-header{
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    h1 {
+        margin: 0;
+    }
+    a{
+        width: 200px;
+        // float: right;
+        margin: 0 20px 0 0;
+    }
+}
+
+.dashboard-quickdetail-box {
+    background: white;
+    height: auto;
+    overflow: hidden;
+    box-shadow: 0px 0px 2px 0 rgba(29, 29, 29, 0.1);
+    width: 100%;
+    padding: 20px;
+    .heading {
+      color: #222222;
+      margin: 0;
+      padding: 5px 0 25px;
+      font-size: 16px;
+      line-height: 18px;
+      border-bottom: 1px solid #eee;
+      text-transform: uppercase;
+    }
+    .logo-head {
+      width: 50px;
+    }
+    .header-wrapper{
+        display: flex;
+        // justify-content: space-between;
+        flex-direction: row;
+        width: 50%;
+        .nav-links{
+            display: flex;
+            // justify-content: space-between;
+            width: 246px;
+            width: 60%;
+            padding-left: 50px; 
+        }
+        .head-body {
+          border-right: 1px solid #000;
+        }
+        a{
+            padding: 0 10px 0 0;
+        }
+        .table-content{
+          height: 100px;
+          width: 300px;
+          background: #eee;
+          border: 1px solid #000;
+
+          span{
+            justify-content: center;
+            display: flex;
+          }
+        }
+    }
+    .searcharea {
+        display: flex;
+        align-items: center;
+        max-width: 280px;
+        width: 100%;
+        .searchicon {
+          background: url(../../../../../assets/images/ico_search.svg) no-repeat left
+            center;
+          background-size: 16px;
+          width: 16px;
+          height: 16px;
+          display: inline-block;
+          margin: 0 12px 25px 0;
+          padding-right: 30px;
+        }
+        input {
+          font-size: 14px;
+          line-height: 16px;
+          box-shadow: none;
+          border: none;
+          width: 100%;
+        }
+      }
+    
+  
+    .quickdetailtable-contant {
+      overflow: hidden;
+      .quickdetailtable-row {
+        &.topbar {
+          padding: 14px;
+          background: #eee;
+          border: none;
+          color: #aaa;
+        }
+      }
+      .button-row{
+          justify-content: center;
+      }
+      .quickdetailtable-row {
+        display: flex;
+        padding: 25px 14px;
+        border-top: 1px solid #f5f5f5;
+        align-items: center;
+        position: relative;
+  
+        .quickdetailtable-column {
+          flex: 0 0 24%;
+          letter-spacing: 0.3px;
+          font-size: 15px;
+          line-height: 17px;
+          color: #333;
+          cursor: default;
+        }
+        .editimg{
+          height: 30px;
+          width: 30px;
+        }
+      }
+    }
+    button.calendar, button.calendar:active {
+      width: 2.75rem;
+      background-image: url("../../../../../assets/images/calender.png") !important;
+      background-repeat: no-repeat;
+      background-size: 23px;
+      background-position: center;
+  }
+  .datecls{
+    outline: 0;
+    border-width: 0 0 2px;
+  }
+  .applybtn{
+    display: flex;
+    justify-content: center;
+
+    a {
+      padding: 6px 10px 0px 8px;
+      width: 20%;
+    }
+  }
+  .right-header-wrapper{
+    // display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    .second-div{
+        display: flex;
+        justify-content: space-between;
+        // width: 246px;
+    }
+  }
+    input{
+      outline: 0;
+      border-width: 0 0 2px;
+    }
+  }
+
+  .changePasswordtxt{
+    color: green;
+  }
+  .imgcls {
+    border: 1px solid #000;
+    width: 150px;
+    height: 150px;
+    background: steelblue;
+    margin-left: 34%;
+
+    p {
+      color: #ffffff;
+      font-size: 52px;
+      margin-left: 31px;
+      height: 36px;
+    }
+  }
+
+  
+  @media (max-width: 767px) {
+    .dashboard-count-cardbox {
+      padding: 16px 24px 16px 19px;
+    }
+  }

@@ -118,7 +118,8 @@
                   color: #989898;
                   .stepsnumber {
                     color: $white;
-                    background: $black url(//src/assets/images/ico-check.svg);
+                    background: $black
+                      url(../../../../assets/images/ico_check-white.svg);
                     background-size: 16px;
                     font-size: 0;
                     background-repeat: no-repeat;
@@ -219,19 +220,25 @@
           align-items: center;
           flex-wrap: wrap;
           &.btn-50 {
+            flex-wrap: nowrap;
+            align-items: flex-start;
             .btn {
               width: 100%;
+              margin: 0 20px 0 0;
+              &:last-child {
+                margin: 0;
+              }
             }
           }
           &.persion-info-actionbtn {
             .btn {
               &:last-child {
-                width: 33%;
+                width: 34%;
               }
             }
           }
           .btn {
-            margin: 0 20px 0 0;
+            margin: 0 5px 0 0;
             width: auto;
             &:last-child {
               margin: 0;

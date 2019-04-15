@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TimesheetHeaderComponent } from './timesheet-header.component';
+import { DeleteModalComponent } from './delete-modal.component';
 
-describe('TimesheetHeaderComponent', () => {
-  let component: TimesheetHeaderComponent;
-  let fixture: ComponentFixture<TimesheetHeaderComponent>;
+describe('DeleteModalComponent', () => {
+  let component: DeleteModalComponent;
+  let fixture: ComponentFixture<DeleteModalComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TimesheetHeaderComponent ]
+      declarations: [ DeleteModalComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TimesheetHeaderComponent);
+    fixture = TestBed.createComponent(DeleteModalComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

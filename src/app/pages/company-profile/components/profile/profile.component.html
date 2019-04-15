@@ -1,3 +1,253 @@
-<p>
-  profile works!
-</p>
+<div class="timesheet-header">
+  <div class="main-head">
+    <h1>Company Profile</h1>
+  </div>
+  <div class="side-head">
+    <a href="javascript:;" (click)="editDetails()" class="btn btn-default">Edit Details</a>
+  </div>
+</div>
+
+<div class="dashboard-quickdetail-box">
+  <div class="header-wrapper">
+    <div class="head-body">
+     <div class="imgcls">
+      <p>LO</p>
+      <p>GO</p>
+      <!-- <input type="file"> -->
+     </div>
+      <h3>Envy Event Organisers</h3>
+      <table>
+        <tbody>
+          <tr>
+            <td class="table-content">
+              <span>8</span>
+              <span>TIMESHEETS(TOTAL)</span>
+              <span>64 Hours</span>
+            </td>
+            <td class="table-content">
+              <span>42</span>
+              <span>STAFF MEMBERS(TOTAL)</span>
+              <span>320 Hours</span>
+            </td>
+          </tr>
+          <tr>
+            <td class="table-content">
+              <span>1</span>
+              <span>TIMESHEETS(THIS MONTH)</span>
+              <span>8 Hours</span>
+            </td>
+            <td class="table-content">
+              <span>5</span>
+              <span>STAFF MEMBERS(THIS MONTH)</span>
+              <span>40 Hours</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <span>SHOW SPECIFIC TIME RANGE</span>
+      <div class="form-group">
+        <div class="input-group datepicker-group">
+          <input class="form-control datecls" placeholder="" name="stdate" [(ngModel)]="startDate" ngbDatepicker #d="ngbDatepicker"
+            [ngModelOptions]="{standalone: true}">
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
+          </div>
+          <input class="form-control datecls" placeholder="" name="stdate" [(ngModel)]="startDate" ngbDatepicker #d="ngbDatepicker"
+            [ngModelOptions]="{standalone: true}">
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
+          </div>
+        </div>
+      </div>
+      <div class="applybtn">
+        <a href="javascript:;" (click)="backToList()" class="btn btn-default">APPLY</a>
+      </div>
+    </div>
+    <div class="nav-links">
+      <div>
+        <!-- <span>Personal Information</span> -->
+      </div>
+      <table>
+        <tbody>
+          <tr>
+            <td>
+              <div class="form-group">
+                <div class="full-name">
+                  <div class="nameblock">
+                    <div class="">
+                      <label class="">First name</label>
+                      <input type="text" class="" id="clientname" placeholder="First Name" name="clientname" readonly />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </td>
+            <td>
+              <div class="form-group">
+                <div class="full-name">
+                  <div class="nameblock">
+                    <div class="">
+                      <label class="">Last name</label>
+                      <input type="text" class="" id="clientname" placeholder="Last Name" name="clientname" readonly />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="form-group">
+                <div class="full-name">
+                  <div class="nameblock">
+                    <div class="">
+                      <label class="">Job Title</label>
+                      <input type="text" class="" id="clientname" placeholder="Job Title" name="clientname" readonly />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </td>
+            <td>
+              <div class="form-group">
+                <div class="full-name">
+                  <div class="nameblock">
+                    <div class="">
+                      <label class="">Business Type</label>
+                      <input type="text" class="" id="clientname" placeholder="Business Type" name="clientname" readonly />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="form-group">
+                <div class="full-name">
+                  <div class="nameblock">
+                    <div class="">
+                      <label class="">Business Name</label>
+                      <input type="text" class="" id="clientname" placeholder="Business Name" name="clientname" readonly />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </td>
+            <td>
+              <div class="form-group">
+                <div class="full-name">
+                  <div class="nameblock">
+                    <div class="">
+                      <label class="">Employee Status Request</label>
+                      <input type="text" class="" id="clientname" placeholder="Employee Status Request" name="clientname" readonly />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="form-group">
+                <div class="full-name">
+                  <div class="nameblock">
+                    <div class="">
+                      <label class="">Email Address</label>
+                      <input type="text" class="" id="clientname" placeholder="Email" name="clientname" readonly />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </td>
+            <td>
+              <div class="form-group">
+                <div class="full-name">
+                  <div class="nameblock">
+                    <div class="">
+                      <label class="">Phone No</label>
+                      <input type="text" class="" id="clientname" placeholder="Phone no" name="clientname" readonly />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="form-group">
+                <div class="full-name">
+                  <div class="nameblock">
+                    <div class="">
+                      <label class="">Mobile No</label>
+                      <input type="text" class="" id="clientname" placeholder="Mobile No" name="clientname" readonly />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </td>
+            <td>
+              <div class="form-group">
+                <div class="full-name">
+                  <div class="nameblock">
+                    <div class="">
+                      <label class="">Password</label>
+                      <input type="text" class="" id="clientname" placeholder="Password" name="clientname" readonly />
+                      <a href="javascript:;" class="changePasswordtxt" (click)="changePassword()">Change Password</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="form-group">
+                <div class="full-name">
+                  <div class="nameblock">
+                    <div class="">
+                      <label class="">Address</label>
+                      <input type="text" class="" id="clientname" placeholder="Address" name="clientname" readonly />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="form-group">
+                <div class="full-name">
+                  <div class="nameblock">
+                    <div class="">
+                      <p class="">About</p>
+                      <span>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="form-group">
+                <div class="full-name">
+                  <div class="nameblock">
+                    <div class="">
+                      <p class="">Services</p>
+                      <label>wedding and special events planning</label><br />
+                      <label>Catering</label><br />
+                      <label>Florist</label><br />
+                      <label>Event Hire</label><br />
+                      <label>Corporate Events  </label><br />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

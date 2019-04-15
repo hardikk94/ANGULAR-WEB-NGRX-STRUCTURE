@@ -65,7 +65,7 @@ export class TimesheetListComponent implements AfterViewInit {
   }
 
   openModal() {
-    const modalRef = this.modalService.openModal(TimesheetDetailComponent, "Create New Timesheet");
+    const modalRef = this.modalService.openModal(TimesheetDetailComponent, "Create New Timesheet",'');
     modalRef.componentInstance.name = 'Hardik';
   }
   getData() {

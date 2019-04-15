@@ -11,6 +11,8 @@ import { ImageViewerComponent } from './components/image-viewer/image-viewer.com
 import { LoaderComponent } from './components/loader/loader.component';
 import { ModalComponent } from './components/modal/modal.component';
 import { SchedulerComponent } from './components/scheduler/scheduler.component';
+import { DeleteModalComponent } from './components/delete-modal/delete-modal.component';
+import { SearchPipe } from './components/pipe/search.pipe';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,8 @@ import { SchedulerComponent } from './components/scheduler/scheduler.component';
     LoaderComponent,
     ModalComponent,
     SchedulerComponent,
+    DeleteModalComponent,
+    SearchPipe
   ],
   imports: [
     CommonModule,
@@ -41,8 +45,10 @@ import { SchedulerComponent } from './components/scheduler/scheduler.component';
     ReactiveFormsModule,
     FormsModule,
     ModalComponent,
-    SchedulerComponent
+    SchedulerComponent,
+    DeleteModalComponent
 
-  ]
+  ],
+  entryComponents: [DeleteModalComponent]
 })
 export class SharedModule { }

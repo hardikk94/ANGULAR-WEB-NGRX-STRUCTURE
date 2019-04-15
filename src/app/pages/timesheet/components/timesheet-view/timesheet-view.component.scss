@@ -1,3 +1,17 @@
+.timesheet-header{
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    h1 {
+        margin: 0;
+    }
+    a{
+        width: 200px;
+        // float: right;
+        margin: 0 20px 0 0;
+    }
+}
 .dashboard-quickdetail-box {
     background: white;
     height: auto;
@@ -5,6 +19,13 @@
     box-shadow: 0px 0px 2px 0 rgba(29, 29, 29, 0.1);
     width: 70%;
     padding: 20px;
+
+    .timesheet-head {
+        font-weight: 600;
+    }
+    .submit-head{
+        float: right;
+    }
 }
 input{
     outline: 0;
@@ -31,4 +52,36 @@ button.calendar, button.calendar:active {
     width: 200px;
     background-color: #86B070;
     text-align: center;
+}
+.roleslbl{
+    width: 200px;
+    background-color: #86B070;
+    text-align: center;
+    margin: 0 10px 0 0;
+}
+.button-row{
+    justify-content: center;
+}
+.quickdetailtable-row {
+    display: flex;
+    padding: 25px 14px;
+    border-top: 1px solid #f5f5f5;
+    align-items: center;
+    position: relative;
+
+    .quickdetailtable-column {
+      flex: 0 0 24%;
+      letter-spacing: 0.3px;
+      font-size: 15px;
+      line-height: 17px;
+      color: #333;
+      cursor: default;
+
+      .editdetailbtn {
+          width: 50%;
+      }
+      .submitbtn{
+          width: 50%;
+      }
+    }
 }

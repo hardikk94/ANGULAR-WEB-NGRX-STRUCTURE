@@ -23,12 +23,19 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 // declare all imperative component here
 import { TimesheetDetailComponent } from '../pages/timesheet/components/timesheet-detail/timesheet-detail.component';
 import { TimesheetStoreService } from '../pages/timesheet/store/timesheet.store';
+import { EditProfileComponent } from '../pages/company-profile/components/edit-profile/edit-profile.component';
+import { ChangePasswordComponent } from '../pages/company-profile/components/change-password/change-password.component';
+import { CompanyProfileStoreService } from '../pages/company-profile/store/company-profile.store';
+import { CalendarStoreService } from '../pages/calendar/store/calendar.store';
+
 
 @NgModule({
     declarations: [
         ToastComponent,
         PageNotFound404Component,
-        TimesheetDetailComponent
+        TimesheetDetailComponent,
+        EditProfileComponent,
+        ChangePasswordComponent
     ],
     imports: [
         CommonModule,
@@ -48,9 +55,11 @@ import { TimesheetStoreService } from '../pages/timesheet/store/timesheet.store'
         NgxSpinnerModule,
         TimesheetDetailComponent,
         SharedModule,
+        EditProfileComponent,
+        ChangePasswordComponent
 
     ],
-    entryComponents: [ToastComponent, TimesheetDetailComponent],
+    entryComponents: [ToastComponent, TimesheetDetailComponent,EditProfileComponent,ChangePasswordComponent],
     providers: [
         CommonService,
         ToastService,
@@ -63,7 +72,9 @@ import { TimesheetStoreService } from '../pages/timesheet/store/timesheet.store'
         AuthService,
         LoaderService,
         ModalService,
-        TimesheetStoreService
+        TimesheetStoreService,
+        CompanyProfileStoreService,
+        CalendarStoreService
     ],
 })
 export class CoreModule {

@@ -1,21 +1,10 @@
 <nav class="navbar navbar-expand-lg navbar-light">
   <div class="searcharea">
     <label for="search" class="searchicon"></label>
-    <input
-      type="search"
-      placeholder="Search transactions, invoices or help"
-      id="search"
-    />
+    <input type="search" placeholder="Search transactions, invoices or help" id="search" />
   </div>
-  <button
-    class="navbar-toggler"
-    type="button"
-    data-toggle="collapse"
-    data-target="#navbarNav"
-    aria-controls="navbarNav"
-    aria-expanded="false"
-    aria-label="Toggle navigation"
-  >
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+    aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse coloum-right" id="navbarNav">
@@ -23,17 +12,26 @@
       <ul>
         <li><a href="JavaScript:void(0);;" title="Help" class="iconview help"></a></li>
         <li><a href="JavaScript:void(0);;" title="Chats" class="iconview chats"></a></li>
-        <li><a href="JavaScript:void(0);;" title="Notification" class="iconview noti"></a></li>
+        <li><a href="JavaScript:void(0);;" title="Notification" class="iconview noti" (click)="notification()"></a></li>
         <li class="dropdown-profile">
           <a class="profile-column" href="JavaScript:void(0);;" title="John Doe">
             <label class="username">John Doe</label>
             <span class="arrow"></span>
             <span class="userpic">
-              <img src="../../../../assets/images/user-avatar.png"
-            /></span>
+              <img src="../../../../assets/images/user-avatar.png" /></span>
           </a>
         </li>
       </ul>
     </div>
   </div>
 </nav>
+<div class="notification-content" [hidden]="isNotification">
+  <div class="notification-list">
+    <div>notify 1</div>
+    <div>notify 2</div>
+    <div>notify 3</div>
+    <div>notify 4</div>
+    <div>notify 5</div>
+    <div>notify 6</div>
+  </div>
+</div>

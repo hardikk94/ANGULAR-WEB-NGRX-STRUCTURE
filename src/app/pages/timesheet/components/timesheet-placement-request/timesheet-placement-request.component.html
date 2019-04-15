@@ -1,3 +1,19 @@
+<div class="timesheet-header">
+  <div class="main-head">
+    <h1>Timesheet</h1>
+  </div>
+  <div class="side-head">
+    <input type='text' placeholder='Search...' id='search-text-input' />
+    <div id='button-holder'>
+      <img src='../../../../../assets/images/ico_search.svg' />
+    </div>
+      <select class="placement-select">
+        <option>abc</option>
+      </select>
+    <a href="javascript:;" (click)="openModal()" class="btn btn-primary">CREATE TIMESHEET</a>
+  </div>
+</div>
+
 <div class="dashboard-quickdetail-box">
   <div class="header-wrapper">
     <div>
@@ -16,7 +32,7 @@
         <input type="text">
         <label for="search" class="searchicon"></label>
       </div>
-      <a href="javascript:;"  (click)="allPlacementRequest()">All</a>
+      <a href="javascript:;" (click)="allPlacementRequest()">All</a>
       <a href="javascript:;" (click)="timesheets()">Timesheets</a>
       <a href="javascript:;" (click)="vacancies()">Vacancies</a>
     </div>
@@ -35,45 +51,33 @@
           <div class="quickdetailtable-column">
             Due
           </div>
-        </div>
-        <div class="quickdetailtable-row">
           <div class="quickdetailtable-column">
-            <div class="quickdetailtable-column-bold">Second Cup Cafe</div>
+            Action
           </div>
-          <div class="quickdetailtable-column">3/1/2019</div>
-          <div class="quickdetailtable-column">15 Staff</div>
-          <div className="quickdetailtable-column">14 Sep 2018</div>
         </div>
-        <div class="quickdetailtable-row">
+        <div class="quickdetailtable-row" *ngFor="let item of requestList | paginate: { itemsPerPage: 10, currentPage: p }">
           <div class="quickdetailtable-column">
-            <div class="quickdetailtable-column-bold">The Big Day</div>
+            <div class="quickdetailtable-column-bold">{{item.client}}</div>
           </div>
-          <div class="quickdetailtable-column">3/1/2019</div>
-          <div class="quickdetailtable-column">15 Staff</div>
-          <div className="quickdetailtable-column">14 Sep 2018</div>
-        </div>
-        <div class="quickdetailtable-row">
+          <div class="quickdetailtable-column">{{item.recieved}}</div>
+          <div class="quickdetailtable-column">{{item.staff}}</div>
+          <div class="quickdetailtable-column">{{item.due}}</div>
           <div class="quickdetailtable-column">
-            <div class="quickdetailtable-column-bold">The Lounge</div>
+            <a href="javascript:;" (click)="editRequest()">
+              <img class="editimg" src="../../../../../assets/images/edit.png">
+            </a>
+            <a href="javascript:;" (click)="deleteRequest()">
+              <img class="deleteimg" src="../../../../../assets/images/delete.png">
+            </a>
           </div>
-          <div class="quickdetailtable-column">3/1/2019</div>
-          <div class="quickdetailtable-column">15 Staff</div>
-          <div className="quickdetailtable-column">29 Sep 2018</div>
-        </div>
-        <div class="quickdetailtable-row">
-          <div class="quickdetailtable-column">
-            <div class="quickdetailtable-column-bold">Event ori</div>
-          </div>
-          <div class="quickdetailtable-column">3/1/2019</div>
-          <div class="quickdetailtable-column">15 Staff</div>
-          <div className="quickdetailtable-column">29 Sep 2018</div>
         </div>
         <div class="quickdetailtable-row button-row">
           <div class="quickdetailtable-column">
-            <button class="btn btn-default">Add new timesheet</button>
+            <button class="btn btn-default" type="button" (click)="openModal()">Add new timesheet</button>
           </div>
           <div></div>
         </div>
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
       </div>
     </div>
   </div>

@@ -1,0 +1,187 @@
+<app-modal [modalTitle]="title">
+    <form [formGroup]="editProfileForm" (ngSubmit)="editProfile()">
+        <!-- start general information -->
+        <div>
+            <!-- <ng-container> -->
+            <div class="form-group">
+                <div class="full-name">
+                    <div class="nameblock ">
+                        <div class="col-md-12">
+                            <label class="col-md-6">First name</label>
+                            <input type="text" class="col-md-6" id="firstname" placeholder="Enter First Name"
+                                formControlName="firstname" name="firstname" />
+                                <span class="form-field-error"  *ngIf="
+                                (editProfileForm.get('firstname').dirty ||
+                                editProfileForm.get('firstname').touched) &&
+                                !editProfileForm.get('firstname').valid">
+                                        First name is required.
+                                      </span>
+                        </div>
+                      
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="full-name">
+                    <div class="nameblock ">
+                        <div class="col-md-12">
+                            <label class="col-md-6">Last name</label>
+                            <input type="text" class="col-md-6" id="lastname" placeholder="Enter last Name"
+                                formControlName="lastname" name="lastname" />
+                                <span class="form-field-error"  *ngIf="
+                                (editProfileForm.get('lastname').dirty ||
+                                editProfileForm.get('lastname').touched) &&
+                                !editProfileForm.get('lastname').valid">
+                                        last name is required.
+                                      </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="full-name">
+                    <div class="nameblock ">
+                        <div class="col-md-12">
+                            <label class="col-md-6">Job Title</label>
+                            <input type="text" class="col-md-6" id="jobtitle" placeholder="Enter jobtitle"
+                                formControlName="jobtitle" name="jobtitle" />
+                        </div>
+                        <span class="form-field-error" *ngIf="
+                        (editProfileForm.get('jobtitle').dirty ||
+                        editProfileForm.get('jobtitle').touched) &&
+                        !editProfileForm.get('jobtitle').valid">
+                        jobtitle to is required.
+                          </span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+            <div class="full-name">
+                <div class="nameblock ">
+                    <div class="col-md-12">
+                        <label class="col-md-6">Business Type</label>
+                        <input type="text" class="col-md-6" id="businesstype" placeholder="Enter Business type" formControlName="businesstype"
+                            name="businesstype" />
+                    </div>
+                    <span class="form-field-error" *ngIf="
+                    (editProfileForm.get('businesstype').dirty ||
+                    editProfileForm.get('businesstype').touched) &&
+                    !editProfileForm.get('businesstype').valid">
+                    business type is required.
+                      </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="full-name">
+                <div class="nameblock ">
+                    <div class="col-md-12">
+                        <label class="col-md-6">Business Name</label>
+                        <input type="text" class="col-md-6" id="businessname" placeholder="Enter Business name" formControlName="businessname"
+                            name="businessname" />
+                    </div>
+                    <span class="form-field-error" *ngIf="
+                    (editProfileForm.get('businessname').dirty ||
+                    editProfileForm.get('businessname').touched) &&
+                    !editProfileForm.get('businessname').valid">
+                    business name is required.
+                      </span>
+                </div>
+            </div>
+        </div>
+            <div class="form-group">
+                <div class="full-name">
+                    <div class="nameblock ">
+                        <div class="col-md-12">
+                            <label class="col-md-6">Employee Status Request</label>
+                            <input type="text" class="col-md-6" id="empsatusreq" placeholder="Enter employee status request" formControlName="empsatusreq"
+                                name="empsatusreq">
+                        </div>
+                        <span class="form-field-error" *ngIf="
+                        (editProfileForm.get('empsatusreq').dirty ||
+                        editProfileForm.get('empsatusreq').touched) &&
+                        !editProfileForm.get('empsatusreq').valid">
+                        employee status request is required.
+                          </span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="full-name">
+                    <div class="nameblock ">
+                        <div class="col-md-12">
+                            <label class="col-md-6">Email Address</label>
+                            <input type="text" class="col-md-6" id="email" placeholder="Enter email" formControlName="email"
+                                name="email">
+                        </div>
+                        <span class="form-field-error" *ngIf="
+                        (editProfileForm.get('email').dirty ||
+                        editProfileForm.get('email').touched) &&
+                        !editProfileForm.get('email').valid">
+                        email is required.
+                          </span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="full-name">
+                    <div class="nameblock ">
+                        <div class="col-md-12">
+                            <label class="col-md-6">Phone no</label>
+                            <input type="text" class="col-md-6" id="phoneno" placeholder="Enter Phone no" formControlName="phoneno"
+                                name="phoneno">
+                        </div>
+                        <span class="form-field-error" *ngIf="
+                        (editProfileForm.get('phoneno').dirty ||
+                        editProfileForm.get('phoneno').touched) &&
+                        !editProfileForm.get('phoneno').valid">
+                        phone no request is required.
+                          </span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="full-name">
+                    <div class="nameblock ">
+                        <div class="col-md-12">
+                            <label class="col-md-6">Mobile No</label>
+                            <input type="text" class="col-md-6" id="mobileno" placeholder="Enter Mobile no" formControlName="mobileno"
+                                name="mobileno">
+                        </div>
+                        <span class="form-field-error" *ngIf="
+                        (editProfileForm.get('mobileno').dirty ||
+                        editProfileForm.get('mobileno').touched) &&
+                        !editProfileForm.get('mobileno').valid">
+                        mobile no is required.
+                          </span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="full-name">
+                    <div class="nameblock ">
+                        <div class="col-md-12">
+                            <label class="col-md-6">Address</label>
+                            <input type="text" class="col-md-6" id="address" placeholder="Enter Address" formControlName="address"
+                                name="address">
+                        </div>
+                        <span class="form-field-error" *ngIf="
+                        (editProfileForm.get('address').dirty ||
+                        editProfileForm.get('address').touched) &&
+                        !editProfileForm.get('address').valid">
+                        Address is required.
+                          </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end general information -->
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary profilecancel" (click)="activeModal.close('Close click')">Cancel</button>
+            <button class="btn btn-primary saveprofile" [disabled]="!editProfileForm.valid">Save Profile</button>
+        </div>
+    </form>
+   
+
+</app-modal>

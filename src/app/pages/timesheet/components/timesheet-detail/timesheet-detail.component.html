@@ -1,6 +1,5 @@
 <app-modal [modalTitle]="title">
-
-    <form [formGroup]="createtimesheetForm">
+    <form [formGroup]="createtimesheetForm" (ngSubmit)="saveTimesheet()">
         <!-- start general information -->
         <div>
             <span class="sub-header">GENERAL INFORMATION</span>
@@ -19,7 +18,6 @@
                                         Client name is required.
                                       </span>
                         </div>
-                      
                     </div>
                 </div>
             </div>
@@ -212,7 +210,7 @@
     <div class="modal-footer">
         <button type="button" class="btn btn-secondary timesheetbtn" (click)="activeModal.close('Close click')">Cancel</button>
         <button type="button" class="btn btn-primary timesheetbtn" (click)="activeModal.close('Close click')">Save Timesheet</button>
-        <button type="submit" class="btn btn-primary timesheetbtn">Submit</button>
+        <button type="submit" class="btn btn-primary timesheetbtn" [disabled]="!createtimesheetForm.valid">Submit</button>
     </div>
 
 </app-modal>

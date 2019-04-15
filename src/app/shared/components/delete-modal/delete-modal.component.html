@@ -1,0 +1,8 @@
+<app-modal [modalTitle]="title" [modalMessage]="message">
+  <div class="modal-header"></div>
+  <div class=""></div>
+  <div class="modal-footer">
+    <button class="btn btn-primary">OK</button>
+    <button class="btn btn-default" (click)="activeModal.dismiss('Close click')">cancel</button>
+  </div>
+</app-modal>

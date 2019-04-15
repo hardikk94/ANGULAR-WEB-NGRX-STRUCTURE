@@ -1,3 +1,22 @@
-<p>
-  staff-schedule works!
-</p>
+<div class="dashboard-quickdetail-box">
+  <div class="header-wrapper">
+    <div>
+      <h3 class="heading">SHIFT CALANDER</h3>
+    </div>
+    <div class="nav-links">
+      <div class="searcharea">
+        <input type="text">
+        <label for="search" class="searchicon"></label>
+      </div>
+      <a href="javascript:;" (click)="allPlacementRequest()">Month</a>
+      <a href="javascript:;" (click)="timesheets()">Week</a>
+      <a href="javascript:;" (click)="vacancies()">Day</a>
+    </div>
+  </div>
+  <div class="staff-scheduler-wrapper">
+    <app-scheduler #scheduler [rowHeight]="rowHeight" [minHeight]="150" [barMargin]="barMargin" [events]="events"
+      [resources]="resources" [timeRanges]="timeRanges" [startDate]="startDate" [endDate]="endDate" [columns]="columns"
+      eventColor="green" eventStyle="border" [eventRenderer]="eventRenderer" [eventEdit]="eventEdit"
+      (onSchedulerEvents)="onSchedulerEvents($event)" schedulerID="firstscheduler"></app-scheduler>
+  </div>
+</div>

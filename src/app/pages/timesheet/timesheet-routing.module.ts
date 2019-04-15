@@ -4,6 +4,7 @@ import { TimesheetListComponent } from './components/timesheet-list/timesheet-li
 import { HomelayoutComponent } from 'src/app/shared/components/homelayout/homelayout.component';
 import {TimesheetPlacementRequestComponent} from './components/timesheet-placement-request/timesheet-placement-request.component';
 import { TimesheetViewComponent } from './components/timesheet-view/timesheet-view.component';
+import { StaffScheduleComponent } from './components/staff-schedule/staff-schedule.component';
 
 const routes: Routes = [{
   path: '',
@@ -15,6 +16,10 @@ const routes: Routes = [{
   {
     path: 'placement',
     component: TimesheetPlacementRequestComponent
+  },
+  {
+    path: 'staffschedule',
+    component: StaffScheduleComponent
   },
   {
     path: ':id',
